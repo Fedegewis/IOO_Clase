@@ -1,7 +1,7 @@
-package view;
+package Ioo_Test.view;
 
-import controller.ClienteController;
-import dto.ClienteDto;
+import Ioo_Test.controller.ClienteController;
+import Ioo_Test.dto.ClienteDto;
 
 public class ClienteGUI {
 

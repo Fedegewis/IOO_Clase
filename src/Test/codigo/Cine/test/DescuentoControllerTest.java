@@ -1,9 +1,7 @@
-package test;
+package Test.codigo.Cine.test;
 
 import Controlador.DescuentoController;
-import gui.VentanaPrincipal;
-import modelo.Funcion;
-import view.DescuentoView;
+import Ioo_Test.controller.view.DescuentoView;
 
 
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
-package controller;
+package Ioo_Test.controller;
 
-import dto.ClienteDto;
-import model.Cliente;
-import model.Direccion;
+import Ioo_Test.dto.ClienteDto;
+import Ioo_Test.model.Cliente;
+import Ioo_Test.model.Direccion;
 
 import java.util.ArrayList;
 import java.util.List;

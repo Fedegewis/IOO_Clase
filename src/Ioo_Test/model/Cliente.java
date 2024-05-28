@@ -1,4 +1,4 @@
-package model;
+package Ioo_Test.model;
 
 public class Cliente {
 

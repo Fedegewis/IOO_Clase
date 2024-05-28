@@ -1,4 +1,4 @@
-package dto;
+package Ioo_Test.dto;
 
 public class ClienteDto {
 
