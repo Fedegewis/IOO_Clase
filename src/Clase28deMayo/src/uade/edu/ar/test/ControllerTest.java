@@ -31,7 +31,7 @@ class ControllerTest {
     void addModel() throws Exception {
 
         Model model = new Model(String.valueOf(Math.random()+4),"name");
-        controller.addModel(controller.toDto(model));
+        controller.addModel(Controller.toDto(model));
     }
 
     @Test
