@@ -73,6 +73,7 @@ public class TarjetaController {
 
     private  Cliente buscarCliente(int dni) {
 
+        return null;
     }
 
 }
