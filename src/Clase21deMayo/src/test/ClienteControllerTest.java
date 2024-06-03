@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 class ClienteControllerTest {
@@ -40,7 +41,7 @@ class ClienteControllerTest {
                 "2333","amarillo","Ale","12");
         clienteController.crearCliente(dto);
         ClienteDto dto1 = clienteController.buscarCliente("233");
-        assertEquals(null,dto1);
+        assertNull(dto1);
     }
 
     @Test
