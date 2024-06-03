@@ -15,8 +15,8 @@ public class Cliente {
 
 
 
-    public void getCliente() {
-        // TODO implement here
+    public boolean getCliente(int dni) {
+       return  true;
     }
 
 }
