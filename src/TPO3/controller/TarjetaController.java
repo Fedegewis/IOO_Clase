@@ -39,6 +39,8 @@ public class TarjetaController {
 
 
     private Tarjeta buscarTarjeta( String nroTarjeta) {
+        Tarjeta tarjeta = new Tarjeta();
+        tarjeta.soyEsaTarjeta(nroTarjeta);
 
         return tarjeta;
     }
@@ -49,7 +51,7 @@ public class TarjetaController {
     }
 
 
-    public void altaTarjetaDeDebito(void Cliente cliente, void String nroTarjeta) {
+    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta) {
 
     }
 
