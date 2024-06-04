@@ -29,13 +29,12 @@ public class Tarjeta {
     public void crearConsumo(float monto, String nombreEstablecimiento, int año,int mes, int codigo) {
         List<Consumo> consumos=new ArrayList<>();
         consumos.add(new Consumo(codigo,mes,año,nombreEstablecimiento,monto));
-
     }
 
 
     public float calcularConsumo( float monto) {
         //VER COMO HACER PARA DIFERENCIAR ENTRE TARJETA DE CREDITO Y DEBITO
-
+        return 0;
 
 
     }
