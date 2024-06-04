@@ -31,6 +31,7 @@ public class ClienteController {
         for (int i = 0;i< clientes.size();i++){
             dtos.add(toDto(clientes.get(i)));
         }
+
         return dtos;
     }
 

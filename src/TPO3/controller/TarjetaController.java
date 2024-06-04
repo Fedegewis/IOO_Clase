@@ -1,5 +1,6 @@
 package TPO3.controller;
 
+import TPO3.dto.TarjetaDTO;
 import TPO3.model.Cliente;
 import TPO3.model.Consumo;
 import TPO3.model.Tarjeta;
@@ -15,35 +16,36 @@ public class TarjetaController {
 
     private TarjetaController INSTANCE = null;
 
-    private TarjetaController(Collection<Cliente>clientes,Collection<Tarjeta>tarjetas) {
-        this.clientes = clientes;
-        this.tarjetas =tarjetas;
+    private TarjetaController() {
+        clientes = new ArrayList<>();
+        tarjetas =new ArrayList<>();
     }
 
     public TarjetaController getInstance() {
         if(INSTANCE == null) {
-            INSTANCE = new TarjetaController(clientesNuevos(),tarjetasNuevas());
+            INSTANCE = new TarjetaController();
         }
         return INSTANCE;
     }
-
+/*
     private static Collection<Cliente> clientesNuevos(){
         clientes =new ArrayList<Cliente>();
         clientes.add(new Cliente("Pedro",1234));
         return  clientes;
 
     }
-
     private static Collection<Tarjeta> tarjetasNuevas(){
         List<Consumo> consumos=new ArrayList<>();
         consumos.add(new Consumo(1,12,2023,"UADE",46000));
         tarjetas =new ArrayList<>();
         tarjetas.add(new Tarjeta(1234,consumos,"1569"));
         return  tarjetas;
-
     }
+    */
+
 
     public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio,int dni,int codigo) {
+
         for (Tarjeta tarjeta: tarjetas){
             if(tarjeta.soyEsaTarjeta(nroTarjeta)){
                 tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
@@ -67,6 +69,7 @@ public class TarjetaController {
 
 
     private Tarjeta buscarTarjeta (String nroTarjeta) {
+        Collection<TarjetaDTO>dtos=new ArrayList<>();
         for(Tarjeta tarjeta:tarjetas){
             for (int i =0; i<tarjetas.size();i++){
                 if(nroTarjeta !=null && tarjeta.soyEsaTarjeta(nroTarjeta)){
