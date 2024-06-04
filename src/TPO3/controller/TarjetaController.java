@@ -1,72 +1,91 @@
 package TPO3.controller;
 
-import Clase28deMayo.src.uade.edu.ar.controller.Controller;
 import TPO3.model.Cliente;
 import TPO3.model.Consumo;
 import TPO3.model.Tarjeta;
-import TPO3.model.TarjetaDebito;
 
 import java.util.*;
 
 
 public class TarjetaController {
 
-    private Collection <Cliente> clientes;
+    private static Collection<Cliente> clientes;
 
-
-    private Collection<Tarjeta> tarjetas;
-
+    private static Collection<Tarjeta> tarjetas;
 
     private TarjetaController INSTANCE = null;
 
-    private TarjetaController() {
-        clientes = new ArrayList<>();
-        tarjetas =new ArrayList<>();
+    private TarjetaController(Collection<Cliente>clientes,Collection<Tarjeta>tarjetas) {
+        this.clientes = clientes;
+        this.tarjetas =tarjetas;
     }
-
-
-
-
-
 
     public TarjetaController getInstance() {
         if(INSTANCE == null) {
-            INSTANCE = new TarjetaController();
+            INSTANCE = new TarjetaController(clientesNuevos(),tarjetasNuevas());
         }
         return INSTANCE;
     }
 
+    private static Collection<Cliente> clientesNuevos(){
+        clientes =new ArrayList<Cliente>();
+        clientes.add(new Cliente("Pedro",1234));
+        return  clientes;
 
-    public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio) {
+    }
+
+    private static Collection<Tarjeta> tarjetasNuevas(){
+        List<Consumo> consumos=new ArrayList<>();
+        consumos.add(new Consumo(1,12,2023,"UADE",46000));
+        tarjetas =new ArrayList<>();
+        tarjetas.add(new Tarjeta(1234,consumos,"1569"));
+        return  tarjetas;
+
+    }
+
+    public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio,int dni,int codigo) {
 
     }
 
 
-    public float calcularConsumoReal( String nroTarjeta,  int mes,  int año,  float monto) {
+    public float calcularConsumoReal( String nroTarjeta,  int mes,  int año,  float monto,int dni,String comercio,int codigo) {
+            if(buscarCliente(dni)!= null){
+               if(buscarTarjeta(nroTarjeta)!=null){
+                   for (Tarjeta tarjeta: tarjetas){
+                       tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
+                       tarjeta.calcularConsumo(monto);
+                   }
+               }
 
-        return 0.0f;
+            }
+        return 0;
     }
 
 
-    private Tarjeta buscarTarjeta( String nroTarjeta) {
-        List<Tarjeta>tarjetas = new ArrayList<>();
-        for (Tarjeta tarjeta: tarjetas){
-            if (tarjeta.soyEsaTarjeta(nroTarjeta))
-                return tarjeta;
+    private Tarjeta buscarTarjeta (String nroTarjeta) {
+        for(Tarjeta tarjeta:tarjetas){
+            for (int i =0; i<tarjetas.size();i++){
+                if(nroTarjeta !=null && tarjeta.soyEsaTarjeta(nroTarjeta)){
+                    return tarjeta;
+                }
+            }
         }
+
         return null;
     }
 
 
-
+//PREGUNTAR ARRIBA Y ABAJO COMO HACER PARA QUE SEA DE LA CLASE TARJETAS Y CLIENTES
 
     private  Cliente buscarCliente(int dni) {
-        Cliente cliente = null;
-        for (int i =0; i<clientes.size();i++){
-            if (dni != 0 && cliente.getCliente(dni)) {
-                return  cliente;
+        for (Cliente cliente : clientes){
+            for (int i =0; i<clientes.size();i++){
+                if (dni != 0 && cliente.getCliente(dni)) {
+                    return  cliente;
+                }
             }
         }
+
         return null;
 
     }

@@ -6,14 +6,15 @@ import java.util.*;
 public class Tarjeta {
 
 
-    public Tarjeta(Cliente cliente, Collection consumos, String numeroTarjeta) {
-        this.cliente = cliente;
+    public Tarjeta(int dni, Collection consumos, String numeroTarjeta) {
+        this.dni = dni;
         this.consumos = consumos;
         this.numeroTarjeta = numeroTarjeta;
     }
 
 
-    private Cliente cliente;
+
+    private int dni;
     private Collection<Consumo> consumos;
     private String numeroTarjeta;
 
@@ -25,14 +26,16 @@ public class Tarjeta {
     }
 
 
-    public void buscarConsumo() {
-        
+    public void crearConsumo(float monto, String nombreEstablecimiento, int año,int mes, int codigo) {
+        List<Consumo> consumos=new ArrayList<>();
+        consumos.add(new Consumo(codigo,mes,año,nombreEstablecimiento,monto));
+
     }
 
 
-    public void calcularConsumo( Consumo consumo) {
+    public float calcularConsumo( float monto) {
+        //VER COMO HACER PARA DIFERENCIAR ENTRE TARJETA DE CREDITO Y DEBITO
 
-        //COMPLETAR PARA HACER POR DIAGRAMA DE SECUENCIA
 
 
     }
@@ -41,9 +44,10 @@ public class Tarjeta {
 
     public void setConsumos(Collection consumos) {this.consumos = consumos; }
 
-    public Cliente getCliente() { return cliente; }
 
-    public void setCliente(Cliente cliente) {this.cliente = cliente; }
+    public int getDni() {return dni;}
+
+    public void setDni(int dni) {this.dni = dni;}
 
     public String getNumeroTarjeta() {return numeroTarjeta; }
 
