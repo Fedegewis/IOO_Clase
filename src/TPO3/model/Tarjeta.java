@@ -5,6 +5,9 @@ import java.util.*;
 
 public class Tarjeta {
 
+    private int dni;
+    private Collection<Consumo> consumos;
+    private String numeroTarjeta;
 
     public Tarjeta(int dni, Collection consumos, String numeroTarjeta) {
         this.dni = dni;
@@ -14,15 +17,9 @@ public class Tarjeta {
 
 
 
-    private int dni;
-    private Collection<Consumo> consumos;
-    private String numeroTarjeta;
-
-
 
     public boolean soyEsaTarjeta( String numeroTarjeta) {
         return  true;
-
     }
 
 

@@ -43,9 +43,9 @@ public class TarjetaController {
     }
     */
 
+    //CREAR UN CLIENTE CONTROLLER PELOTUDO EN EL DIAGRAMA TAMBIEN Y QUE SEA ASOCIASION
 
     public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio,int dni,int codigo) {
-
         for (Tarjeta tarjeta: tarjetas){
             if(tarjeta.soyEsaTarjeta(nroTarjeta)){
                 tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
@@ -92,9 +92,7 @@ public class TarjetaController {
                 }
             }
         }
-
         return null;
-
     }
 
 

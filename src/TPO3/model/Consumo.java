@@ -3,16 +3,6 @@ package TPO3.model;
 
 public class Consumo {
 
-    public Consumo(int codigo, int mes, int año, String nombreEstablecimiento, float monto) {
-        this.codigo = codigo;
-        this.mes = mes;
-        this.año = año;
-        this.nombreEstablecimiento = nombreEstablecimiento;
-        this.monto = monto;
-    }
-
-
-
     private int codigo;
     private int mes;
     private int año;
@@ -20,7 +10,13 @@ public class Consumo {
     private float monto;
 
 
-
+    public Consumo(int codigo, int mes, int año, String nombreEstablecimiento, float monto) {
+        this.codigo = codigo;
+        this.mes = mes;
+        this.año = año;
+        this.nombreEstablecimiento = nombreEstablecimiento;
+        this.monto = monto;
+    }
 
     public int getAño() {return año;}
 

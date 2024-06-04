@@ -3,7 +3,8 @@ package TPO3.model;
 
 public class Cliente {
 
-
+    private String nombre;
+    private int dni;
 
 
     public Cliente(String nombre, int dni) {
@@ -11,8 +12,7 @@ public class Cliente {
         this.dni = dni;
     }
 
-    private String nombre;
-    private int dni;
+
 
 
     public boolean getCliente(int dni) {return  true;}
@@ -24,5 +24,6 @@ public class Cliente {
     public String getNombre() {return nombre;}
 
     public void setNombre(String nombre) {this.nombre = nombre;}
+
 
 }

@@ -3,6 +3,7 @@ package Clase28deMayo.src.uade.edu.ar.test;
 
 import Clase28deMayo.src.uade.edu.ar.controller.Controller;
 import Clase28deMayo.src.uade.edu.ar.dto.ModelDto;
+import Clase28deMayo.src.uade.edu.ar.model.Model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,13 +26,13 @@ class ControllerTest {
     void getInstances() throws Exception {
         assertNotNull(controller);
     }
-/*
+
     @Test
     void addModel() throws Exception {
 
         Model model = new Model(String.valueOf(Math.random()+4),"name");
         controller.addModel(Controller.toDto(model));
-    */
+    }
 
     @Test
     void getByIdModel() {
