@@ -44,6 +44,11 @@ public class TarjetaController {
     }
 
     public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio,int dni,int codigo) {
+        for (Tarjeta tarjeta: tarjetas){
+            if(tarjeta.soyEsaTarjeta(nroTarjeta)){
+                tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
+            }
+        }
 
     }
 
@@ -53,10 +58,9 @@ public class TarjetaController {
                if(buscarTarjeta(nroTarjeta)!=null){
                    for (Tarjeta tarjeta: tarjetas){
                        tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
-                       tarjeta.calcularConsumo(monto);
+                       return tarjeta.calcularConsumo(monto);
                    }
                }
-
             }
         return 0;
     }

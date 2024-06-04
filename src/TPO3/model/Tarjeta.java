@@ -33,11 +33,14 @@ public class Tarjeta {
 
 
     public float calcularConsumo( float monto) {
+
         //VER COMO HACER PARA DIFERENCIAR ENTRE TARJETA DE CREDITO Y DEBITO
         return 0;
 
 
     }
+
+
 
     public Collection<Consumo> getConsumos() {return consumos; }
 

@@ -12,14 +12,10 @@ public class Cliente {
     }
 
     private String nombre;
-
-
     private int dni;
 
 
-    public boolean getCliente(int dni) {
-       return  true;
-    }
+    public boolean getCliente(int dni) {return  true;}
 
     public int getDni() {return dni;}
 
