@@ -46,7 +46,7 @@ public class ClienteController {
             clientes.add(toModel(clienteDTO));
             return true;
         }
-        return false
+        return false;
     }
 
 

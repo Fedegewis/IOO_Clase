@@ -3,14 +3,24 @@ package TPO3.dto;
 public class ClienteDTO {
 
 
+
+    private String nombreCliente;
+    private String dniCliente;
+
     public ClienteDTO(String nombreCliente, String dniCliente) {
+
+        if(nombreCliente == null || nombreCliente.isEmpty()){
+            throw new IllegalArgumentException("El Nombre no puede estar vacio ");
+        }
+
+        if(dniCliente == null || dniCliente.isEmpty()){
+            throw new IllegalArgumentException("El Dni no puede estar vacio ");
+        }
+
         this.nombreCliente = nombreCliente;
         this.dniCliente = dniCliente;
     }
 
-
-    private String nombreCliente;
-    private String dniCliente;
 
 
     public String getNombreCliente() {

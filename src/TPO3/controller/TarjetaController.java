@@ -27,71 +27,78 @@ public class TarjetaController {
 
     //CREAR UN CLIENTE CONTROLLER PELOTUDO EN EL DIAGRAMA TAMBIEN Y QUE SEA ASOCIASION
 
-    public void agregarConsumo( String nroTarjeta,  int mes,  int año,  float monto,  String comercio,int dni,int codigo) {
-        for (Tarjeta tarjeta: tarjetas){
-            if(tarjeta.soyEsaTarjeta(nroTarjeta)){
-                tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
+    public void agregarConsumo( Tarjeta tarjeta, Consumo consumo) {
+            tarjeta.crearConsumo(consumo);
+    }
+
+
+    public float calcularConsumoReal( float monto,Tarjeta tarjeta) {
+        float TotalConsumo=0;
+        boolean isTC = tarjeta.getTipoTarjeta().equals("TC");
+        boolean isTD = tarjeta.getTipoTarjeta().equals("TD");
+        float cargo = tarjeta.getCargo();
+
+        for (Consumo consumo : tarjeta.getConsumos()) {
+            if (isTC) {
+                TotalConsumo += consumo.getMonto() * (1 + (cargo / 100));
+            } else if (isTD) {
+                TotalConsumo += consumo.getMonto() - ((cargo / 100) * TotalConsumo);
             }
         }
-
+        return TotalConsumo;
     }
-
-
-    public float calcularConsumoReal( String nroTarjeta,  int mes,  int año,  float monto,int dni,String comercio,int codigo) {
-            if(buscarCliente(dni)!= null){
-               if(buscarTarjeta(nroTarjeta)!=null){
-                   for (Tarjeta tarjeta: tarjetas){
-                       tarjeta.crearConsumo(monto,comercio,año,mes,codigo);
-                       return tarjeta.calcularConsumo(monto);
-                   }
-               }
-            }
-        return 0;
-    }
-
-
-    private Tarjeta buscarTarjeta (String nroTarjeta) {
-        Collection<TarjetaDTO>dtos=new ArrayList<>();
-        for(Tarjeta tarjeta:tarjetas){
-            for (int i =0; i<tarjetas.size();i++){
-                if(nroTarjeta !=null && tarjeta.soyEsaTarjeta(nroTarjeta)){
-                    return tarjeta;
-                }
-            }
-        }
-
-        return null;
-    }
-
 
     public boolean clienteNoTieneTarjeta(Cliente cliente){
         for (Tarjeta tarjeta: tarjetas){
-            if(tarjeta.getTipoTarjeta() =="TC" && tarjeta.getCliente().getDni() == cliente.getDni()){
+            if(tarjeta.getTipoTarjeta().equals("TC") && tarjeta.getCliente().getDni() == cliente.getDni()){
                 return false;
             }
-            if (tarjeta.getTipoTarjeta() =="TD" && tarjeta.getCliente().getDni() == cliente.getDni()) {
+            if (tarjeta.getTipoTarjeta().equals("TD") && tarjeta.getCliente().getDni() == cliente.getDni()) {
                 return false;
             }
         }
         return true;
     }
 
-
-
-
     public void altaTarjetaDeCredito( Cliente cliente,  String nroTarjeta,float interes) {
         if(clienteNoTieneTarjeta(cliente)){
            Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TC",interes);
+           tarjetas.add(tarjeta);
         }
         else {
-            System.out.println("El cliente ya existe");
+            System.out.println("El cliente ya tiene tarjeta de credito");
         }
     }
 
-    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta,float iva) {}
+    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta,float iva) {
+        if(clienteNoTieneTarjeta(cliente)){
+            Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TD",iva);
+            tarjetas.add(tarjeta);
+        }
+        else {
+            System.out.println("El cliente ya tiene tarjeta de debito");
+        }
+    }
 
     public float calcularDebitoFinDeMes(Consumo consumo, int iva) {return 0.0f;}
 
     public float calcularCreditoFinDeMes( Consumo consumo,  int interes) {return 0.0f;}
 
+
+
+    public static TarjetaDTO toDTO(Tarjeta tarjeta){
+        return new TarjetaDTO(ClienteController.toDTO(tarjeta.getCliente()),
+                tarjeta.getNumeroTarjeta(),
+                tarjeta.getTipoTarjeta(),
+                String.valueOf(tarjeta.getCargo()));
+    }
+
+
+    public static  Tarjeta toModel(TarjetaDTO tarjetaDTO){
+        return new Tarjeta(ClienteController.toModel(tarjetaDTO.getClienteDTO()),
+                new ArrayList<>(),
+                tarjetaDTO.getNroTarjeta(),
+                tarjetaDTO.getTipoTarjeta(),
+                Float.parseFloat(tarjetaDTO.getCargo()));
+    }
 }

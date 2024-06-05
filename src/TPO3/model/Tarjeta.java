@@ -11,16 +11,15 @@ public class Tarjeta {
     private Collection<Consumo> consumos;
     private String numeroTarjeta;
     private String tipoTarjeta;
-    private int
+    private float cargo;
 
-    public Tarjeta(Cliente cliente, Collection consumos, String numeroTarjeta,String tipoTarjeta) {
+    public Tarjeta(Cliente cliente, Collection consumos, String numeroTarjeta,String tipoTarjeta,float cargo) {
         this.cliente = cliente;
         this.consumos = consumos;
         this.numeroTarjeta = numeroTarjeta;
         this.tipoTarjeta=tipoTarjeta;
+        this.cargo = cargo;
     }
-
-
 
 
     public boolean soyEsaTarjeta( String numeroTarjeta) {
@@ -28,20 +27,13 @@ public class Tarjeta {
     }
 
 
-    public void crearConsumo(float monto, String nombreEstablecimiento, int año,int mes, int codigo,String tipoTarjeta) {
+    public void crearConsumo(Consumo consumo) {
         List<Consumo> consumos=new ArrayList<>();
-        consumos.add(new Consumo(codigo,mes,año,nombreEstablecimiento,monto));
+        consumos.add(new Consumo(consumo.getCodigo(),consumo.getMes()
+                ,consumo.getAño()
+                ,consumo.getNombreEstablecimiento()
+                ,consumo.getMonto()));
     }
-
-
-    public float calcularConsumo( float monto) {
-
-        //VER COMO HACER PARA DIFERENCIAR ENTRE TARJETA DE CREDITO Y DEBITO
-        return 0;
-
-
-    }
-
 
 
     public Collection<Consumo> getConsumos() {return consumos; }
@@ -59,4 +51,8 @@ public class Tarjeta {
     public String getTipoTarjeta() {return tipoTarjeta;}
 
     public void setTipoTarjeta(String tipoTarjeta) {this.tipoTarjeta = tipoTarjeta;}
+
+    public float getCargo() {return cargo;}
+
+    public void setCargo(float cargo) {this.cargo = cargo;}
 }
