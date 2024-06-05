@@ -7,24 +7,21 @@ import java.util.Collection;
 public class TarjetaDTO {
 
 
-    private String dniCliente;
+    private ClienteDTO clienteDTO;
     private String consumosTarjeta;
     private String nroTarjeta;
 
 
-    public TarjetaDTO(String dniCliente, String consumosTarjeta, String nroTarjeta) {
-        this.dniCliente = dniCliente;
+    public TarjetaDTO(ClienteDTO clienteDTO, String consumosTarjeta, String nroTarjeta) {
+        this.clienteDTO = clienteDTO;
         this.consumosTarjeta = consumosTarjeta;
         this.nroTarjeta = nroTarjeta;
     }
 
-    public String getDniCliente() {
-        return dniCliente;
-    }
 
-    public void setDniCliente(String dniCliente) {
-        this.dniCliente = dniCliente;
-    }
+    public ClienteDTO getClienteDTO() {return clienteDTO;}
+
+    public void setClienteDTO(ClienteDTO clienteDTO) {this.clienteDTO = clienteDTO;}
 
     public String getConsumosTarjeta() {
         return consumosTarjeta;
@@ -45,7 +42,7 @@ public class TarjetaDTO {
     @Override
     public String toString() {
         return "TarjetaDTO{" +
-                "dniCliente='" + dniCliente + '\'' +
+                "cliente='" + clienteDTO + '\'' +
                 ", consumosTarjeta='" + consumosTarjeta + '\'' +
                 ", nroTarjeta='" + nroTarjeta + '\'' +
                 '}';

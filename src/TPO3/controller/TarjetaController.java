@@ -10,14 +10,11 @@ import java.util.*;
 
 public class TarjetaController {
 
-    private static Collection<Cliente> clientes;
-
     private static Collection<Tarjeta> tarjetas;
 
-    private TarjetaController INSTANCE = null;
+    private static TarjetaController INSTANCE = null;
 
     private TarjetaController() {
-        clientes = new ArrayList<>();
         tarjetas =new ArrayList<>();
     }
 
@@ -27,21 +24,6 @@ public class TarjetaController {
         }
         return INSTANCE;
     }
-/*
-    private static Collection<Cliente> clientesNuevos(){
-        clientes =new ArrayList<Cliente>();
-        clientes.add(new Cliente("Pedro",1234));
-        return  clientes;
-
-    }
-    private static Collection<Tarjeta> tarjetasNuevas(){
-        List<Consumo> consumos=new ArrayList<>();
-        consumos.add(new Consumo(1,12,2023,"UADE",46000));
-        tarjetas =new ArrayList<>();
-        tarjetas.add(new Tarjeta(1234,consumos,"1569"));
-        return  tarjetas;
-    }
-    */
 
     //CREAR UN CLIENTE CONTROLLER PELOTUDO EN EL DIAGRAMA TAMBIEN Y QUE SEA ASOCIASION
 
@@ -82,23 +64,31 @@ public class TarjetaController {
     }
 
 
-//PREGUNTAR ARRIBA Y ABAJO COMO HACER PARA QUE SEA DE LA CLASE TARJETAS Y CLIENTES
-
-    private  Cliente buscarCliente(int dni) {
-        for (Cliente cliente : clientes){
-            for (int i =0; i<clientes.size();i++){
-                if (dni != 0 && cliente.getCliente(dni)) {
-                    return  cliente;
-                }
+    public boolean clienteNoTieneTarjeta(Cliente cliente){
+        for (Tarjeta tarjeta: tarjetas){
+            if(tarjeta.getTipoTarjeta() =="TC" && tarjeta.getCliente().getDni() == cliente.getDni()){
+                return false;
+            }
+            if (tarjeta.getTipoTarjeta() =="TD" && tarjeta.getCliente().getDni() == cliente.getDni()) {
+                return false;
             }
         }
-        return null;
+        return true;
     }
 
 
-    public void altaTarjetaDeCredito( Cliente cliente,  String nroTarjeta) {}
 
-    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta) {}
+
+    public void altaTarjetaDeCredito( Cliente cliente,  String nroTarjeta,float interes) {
+        if(clienteNoTieneTarjeta(cliente)){
+           Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TC",interes);
+        }
+        else {
+            System.out.println("El cliente ya existe");
+        }
+    }
+
+    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta,float iva) {}
 
     public float calcularDebitoFinDeMes(Consumo consumo, int iva) {return 0.0f;}
 
