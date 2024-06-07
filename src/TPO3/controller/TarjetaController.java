@@ -1,9 +1,7 @@
 package TPO3.controller;
 
 import TPO3.dto.TarjetaDTO;
-import TPO3.model.Cliente;
-import TPO3.model.Consumo;
-import TPO3.model.Tarjeta;
+import TPO3.model.*;
 
 import java.util.*;
 
@@ -11,49 +9,54 @@ import java.util.*;
 public class TarjetaController {
 
     private static Collection<Tarjeta> tarjetas;
-
+    private static Collection<Consumo> consumos;
     private static TarjetaController INSTANCE = null;
 
     private TarjetaController() {
         tarjetas =new ArrayList<>();
+        consumos=new ArrayList<>();
     }
 
-    public TarjetaController getInstance() {
+    public static TarjetaController getInstance() {
         if(INSTANCE == null) {
             INSTANCE = new TarjetaController();
         }
         return INSTANCE;
     }
 
-    //CREAR UN CLIENTE CONTROLLER PELOTUDO EN EL DIAGRAMA TAMBIEN Y QUE SEA ASOCIASION
+
 
     public void agregarConsumo( Tarjeta tarjeta, Consumo consumo) {
-            tarjeta.crearConsumo(consumo);
+            tarjeta.cargarConsumo(consumo);
+            consumos.add(consumo);
     }
 
 
-    public float calcularConsumoReal( float monto,Tarjeta tarjeta) {
+
+    public float calcularConsumoReal(Tarjeta tarjeta,int mesI, int añoI, int mesF,int añoF) {
         float TotalConsumo=0;
         boolean isTC = tarjeta.getTipoTarjeta().equals("TC");
         boolean isTD = tarjeta.getTipoTarjeta().equals("TD");
         float cargo = tarjeta.getCargo();
 
         for (Consumo consumo : tarjeta.getConsumos()) {
-            if (isTC) {
-                TotalConsumo += consumo.getMonto() * (1 + (cargo / 100));
-            } else if (isTD) {
-                TotalConsumo += consumo.getMonto() - ((cargo / 100) * TotalConsumo);
+            if(consumo.getMes() >= mesI && consumo.getAño() >=  añoI && consumo.getMes() <= mesF && consumo.getAño() <=  añoF){
+                if (isTC) {
+                    TotalConsumo += consumo.getMonto() * (1 + (cargo / 100));
+                } else if (isTD) {
+                    TotalConsumo += consumo.getMonto() - ((cargo / 100) * consumo.getMonto());
+                }
             }
         }
         return TotalConsumo;
     }
 
-    public boolean clienteNoTieneTarjeta(Cliente cliente){
+    private boolean clienteNoTieneTarjeta(Cliente cliente,String tipoTarjeta){
         for (Tarjeta tarjeta: tarjetas){
-            if(tarjeta.getTipoTarjeta().equals("TC") && tarjeta.getCliente().getDni() == cliente.getDni()){
+            if(tipoTarjeta.equals("TC")&& tarjeta.getCliente().getDni() == cliente.getDni() && tarjeta.getTipoTarjeta().equals("TC")){
                 return false;
             }
-            if (tarjeta.getTipoTarjeta().equals("TD") && tarjeta.getCliente().getDni() == cliente.getDni()) {
+            else if (tipoTarjeta.equals("TD") && tarjeta.getCliente().getDni() == cliente.getDni() && tarjeta.getTipoTarjeta().equals("TD")) {
                 return false;
             }
         }
@@ -61,9 +64,10 @@ public class TarjetaController {
     }
 
     public void altaTarjetaDeCredito( Cliente cliente,  String nroTarjeta,float interes) {
-        if(clienteNoTieneTarjeta(cliente)){
+        if(clienteNoTieneTarjeta(cliente,"TC")){
            Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TC",interes);
            tarjetas.add(tarjeta);
+            System.out.println("Tarjeta de credito creada para DNI: "+ cliente.getDni());
         }
         else {
             System.out.println("El cliente ya tiene tarjeta de credito");
@@ -71,9 +75,10 @@ public class TarjetaController {
     }
 
     public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta,float iva) {
-        if(clienteNoTieneTarjeta(cliente)){
+        if(clienteNoTieneTarjeta(cliente,"TD")){
             Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TD",iva);
             tarjetas.add(tarjeta);
+            System.out.println("Tarjeta de debito creada para DNI: "+ cliente.getDni());
         }
         else {
             System.out.println("El cliente ya tiene tarjeta de debito");

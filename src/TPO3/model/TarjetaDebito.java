@@ -6,8 +6,8 @@ import java.util.Collection;
 public class TarjetaDebito extends Tarjeta {
 
 
-    public TarjetaDebito(int dni, Collection consumos, String numeroTarjeta, float devIVA) {
-        super(dni, consumos, numeroTarjeta);
+    public TarjetaDebito(Cliente cliente, Collection consumos, String numeroTarjeta, String tipoTarjeta, float cargo, float devIVA) {
+        super(cliente, consumos, numeroTarjeta, tipoTarjeta, cargo);
         this.devIVA = devIVA;
     }
 

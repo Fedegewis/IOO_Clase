@@ -5,9 +5,8 @@ import java.util.Collection;
 public class TarjetaCredito extends Tarjeta {
 
 
-
-    public TarjetaCredito(int dni, Collection consumos, String numeroTarjeta, float interes) {
-        super(dni, consumos, numeroTarjeta);
+    public TarjetaCredito(Cliente cliente, Collection consumos, String numeroTarjeta, String tipoTarjeta, float cargo) {
+        super(cliente, consumos, numeroTarjeta, tipoTarjeta, cargo);
         this.interes = interes;
     }
 
