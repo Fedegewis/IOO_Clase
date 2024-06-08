@@ -8,13 +8,15 @@ public class TarjetaDTO {
 
 
     private ClienteDTO clienteDTO;
+    private ConsumoDTO consumoDTO;
     private String nroTarjeta;
     private String tipoTarjeta;
     private String cargo;
 
 
-    public TarjetaDTO(ClienteDTO clienteDTO, String nroTarjeta,String tipoTarjeta,String cargo) {
-        this.clienteDTO = clienteDTO;;
+    public TarjetaDTO(ClienteDTO clienteDTO,ConsumoDTO consumoDTO, String nroTarjeta,String tipoTarjeta,String cargo) {
+        this.clienteDTO = clienteDTO;
+        this.consumoDTO=consumoDTO;
         this.nroTarjeta = nroTarjeta;
         this.tipoTarjeta=tipoTarjeta;
         this.cargo=cargo;
@@ -24,7 +26,9 @@ public class TarjetaDTO {
     public ClienteDTO getClienteDTO() {return clienteDTO;}
 
     public void setClienteDTO(ClienteDTO clienteDTO) {this.clienteDTO = clienteDTO;}
+    public ConsumoDTO getConsumoDTO() {return consumoDTO;}
 
+    public void setConsumoDTO(ConsumoDTO consumoDTO) {this.consumoDTO = consumoDTO;}
 
     public String getNroTarjeta() {
         return nroTarjeta;
@@ -42,13 +46,16 @@ public class TarjetaDTO {
 
     public void setCargo(String cargo) {this.cargo = cargo;}
 
+
     @Override
     public String toString() {
         return "TarjetaDTO{" +
                 "clienteDTO=" + clienteDTO +
+                ", consumoDTO=" + consumoDTO +
                 ", nroTarjeta='" + nroTarjeta + '\'' +
                 ", tipoTarjeta='" + tipoTarjeta + '\'' +
                 ", cargo='" + cargo + '\'' +
                 '}';
     }
+
 }

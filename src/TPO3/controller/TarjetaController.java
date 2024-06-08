@@ -1,5 +1,6 @@
 package TPO3.controller;
 
+import TPO3.dto.ClienteDTO;
 import TPO3.dto.ConsumoDTO;
 import TPO3.dto.TarjetaDTO;
 import TPO3.model.*;
@@ -52,34 +53,34 @@ public class TarjetaController {
         return TotalConsumo;
     }
 
-    private boolean clienteNoTieneTarjeta(Cliente cliente,String tipoTarjeta){
+    private boolean clienteNoTieneTarjeta(ClienteDTO clienteDTO,String tipoTarjeta){
         for (Tarjeta tarjeta: tarjetas){
-            if(tipoTarjeta.equals("TC")&& tarjeta.getCliente().getDni() == cliente.getDni() && tarjeta.getTipoTarjeta().equals("TC")){
+            if(tipoTarjeta.equals("TC")&& tarjeta.getCliente().getDni() == Integer.parseInt(clienteDTO.getDniCliente()) && tarjeta.getTipoTarjeta().equals("TC")){
                 return false;
             }
-            else if (tipoTarjeta.equals("TD") && tarjeta.getCliente().getDni() == cliente.getDni() && tarjeta.getTipoTarjeta().equals("TD")) {
+            else if (tipoTarjeta.equals("TD") && tarjeta.getCliente().getDni() == Integer.parseInt(clienteDTO.getDniCliente()) && tarjeta.getTipoTarjeta().equals("TD")) {
                 return false;
             }
         }
         return true;
     }
 
-    public void altaTarjetaDeCredito( Cliente cliente,  String nroTarjeta,float interes) {
-        if(clienteNoTieneTarjeta(cliente,"TC")){
-           Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TC",interes);
-           tarjetas.add(tarjeta);
-            System.out.println("Tarjeta de credito creada para DNI: "+ cliente.getDni());
+    public void altaTarjetaDeCredito(ClienteDTO clienteDTO, String nroTarjeta, float interes,ConsumoDTO consumoDTO) {
+        if(clienteNoTieneTarjeta(clienteDTO,"TC")){
+           TarjetaDTO tarjetaDTO = new TarjetaDTO(clienteDTO,consumoDTO,nroTarjeta,"TC",String.valueOf(interes));
+           tarjetas.add(toModelTarjeta(tarjetaDTO));
+            System.out.println("Tarjeta de credito creada para DNI: "+ clienteDTO.getDniCliente());
         }
         else {
             System.out.println("El cliente ya tiene tarjeta de credito");
         }
     }
 
-    public void altaTarjetaDeDebito( Cliente cliente,  String nroTarjeta,float iva) {
-        if(clienteNoTieneTarjeta(cliente,"TD")){
-            Tarjeta tarjeta = new Tarjeta(cliente,new ArrayList<>(),nroTarjeta,"TD",iva);
-            tarjetas.add(tarjeta);
-            System.out.println("Tarjeta de debito creada para DNI: "+ cliente.getDni());
+    public void altaTarjetaDeDebito( ClienteDTO clienteDTO,  String nroTarjeta,float iva,ConsumoDTO consumoDTO) {
+        if(clienteNoTieneTarjeta(clienteDTO,"TD")){
+            TarjetaDTO tarjetaDTO = new TarjetaDTO(clienteDTO,consumoDTO,nroTarjeta,"TD",String.valueOf(iva));
+            tarjetas.add(toModelTarjeta(tarjetaDTO));
+            System.out.println("Tarjeta de debito creada para DNI: "+ clienteDTO.getDniCliente());
         }
         else {
             System.out.println("El cliente ya tiene tarjeta de debito");
@@ -94,6 +95,7 @@ public class TarjetaController {
 
     public static TarjetaDTO toDTOTarjeta(Tarjeta tarjeta){
         return new TarjetaDTO(ClienteController.toDTO(tarjeta.getCliente()),
+                tarjeta.getConsumos(),
                 tarjeta.getNumeroTarjeta(),
                 tarjeta.getTipoTarjeta(),
                 String.valueOf(tarjeta.getCargo()));
