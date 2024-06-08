@@ -8,13 +8,16 @@ public class TarjetaDTO {
 
 
     private ClienteDTO clienteDTO;
-    private ConsumoDTO consumoDTO;
+
+
+
+    private Collection<ConsumoDTO> consumoDTO;
     private String nroTarjeta;
     private String tipoTarjeta;
     private String cargo;
 
 
-    public TarjetaDTO(ClienteDTO clienteDTO,ConsumoDTO consumoDTO, String nroTarjeta,String tipoTarjeta,String cargo) {
+    public TarjetaDTO(ClienteDTO clienteDTO,Collection<ConsumoDTO> consumoDTO, String nroTarjeta,String tipoTarjeta,String cargo) {
         this.clienteDTO = clienteDTO;
         this.consumoDTO=consumoDTO;
         this.nroTarjeta = nroTarjeta;
@@ -26,9 +29,10 @@ public class TarjetaDTO {
     public ClienteDTO getClienteDTO() {return clienteDTO;}
 
     public void setClienteDTO(ClienteDTO clienteDTO) {this.clienteDTO = clienteDTO;}
-    public ConsumoDTO getConsumoDTO() {return consumoDTO;}
 
-    public void setConsumoDTO(ConsumoDTO consumoDTO) {this.consumoDTO = consumoDTO;}
+    public Collection<ConsumoDTO> getConsumoDTO() {return consumoDTO;}
+
+    public void setConsumoDTO(Collection<ConsumoDTO> consumoDTO) {this.consumoDTO = consumoDTO;}
 
     public String getNroTarjeta() {
         return nroTarjeta;

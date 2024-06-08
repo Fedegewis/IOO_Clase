@@ -14,13 +14,11 @@ public class Main {
     public static void main(String[] args) {
 
         ClienteController clienteController = ClienteController.getInstance();
-        ClienteDTO clienteNuevoDTO=new ClienteDTO("Federico", "4459");
+        ClienteDTO clienteNuevo=new ClienteDTO("Federico", "4459");
 
-       clienteController.crearCliente(clienteNuevoDTO);
-       clienteController.crearCliente(clienteNuevoDTO);
-
-        Cliente clienteNuevo= ClienteController.toModel(clienteNuevoDTO);
-
+        clienteController.crearCliente(clienteNuevo);
+        clienteController.crearCliente(clienteNuevo);
+        // En este main mi idea es poder demostrar como primero al crear un cliente repetido en la misma instancia primero lo crea y luego lo rechaza
         TarjetaController tarjetaController = TarjetaController.getInstance();
 
         tarjetaController.altaTarjetaDeDebito(clienteNuevo, "1234", 4.45F);
@@ -28,7 +26,7 @@ public class Main {
 
         tarjetaController.altaTarjetaDeCredito(clienteNuevo, "1234", 4.45F);
         tarjetaController.altaTarjetaDeCredito(clienteNuevo, "1234", 4.45F);
-
+        // En este main mi idea es poder demostrar como primero al crear una tarjeta de ambos casps repetida en la misma instancia primero lo crea y luego lo rechaza
 
         Consumo consumo1 = new Consumo(1, 1, 2023, "UADE", 250.0f);
         Consumo consumo2 = new Consumo(2, 2, 2023, "Adidas", 500.0f);
@@ -46,14 +44,15 @@ public class Main {
         consumosCredito.add(consumo4);
         consumosCredito.add(consumo5);
 
+        Cliente ClienteModel=clienteController.toModel(clienteNuevo);
 
-        float totalD= tarjetaController.calcularConsumoReal(new Tarjeta(clienteNuevo,consumosDebito,"1234","TD",21),2,2023,4,2023);
-        float totalC=tarjetaController.calcularConsumoReal(new Tarjeta(clienteNuevo,consumosCredito,"1234","TC",30),4,2023,5,2023);
+        float totalD= tarjetaController.calcularConsumoReal(new Tarjeta(ClienteModel,consumosDebito,"1234","TD",21),2,2023,4,2023);
+        float totalC=tarjetaController.calcularConsumoReal(new Tarjeta(ClienteModel,consumosCredito,"1234","TC",30),4,2023,5,2023);
 
         System.out.println("El total de debito es: "+ totalD);
         System.out.println("El total de credito es: "+ totalC);
 
-
+        // En este main mi idea es poder demostrar como puede calcular tanto Consumo real para Tarjeta de debito y de credito y el funcionamiento correcto
 
 
 
