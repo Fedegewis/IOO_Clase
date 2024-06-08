@@ -22,14 +22,12 @@ public class Tarjeta {
     }
 
 
-    public boolean soyEsaTarjeta( String numeroTarjeta) {
-        return  true;
-    }
 
 
     public void cargarConsumo(Consumo consumo) {
         List<Consumo> consumos=new ArrayList<>();
-        consumos.add(new Consumo(consumo.getCodigo(),consumo.getMes()
+        consumos.add(new Consumo(consumo.getCodigo()
+                ,consumo.getMes()
                 ,consumo.getAño()
                 ,consumo.getNombreEstablecimiento()
                 ,consumo.getMonto()));

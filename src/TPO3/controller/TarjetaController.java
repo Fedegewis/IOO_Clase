@@ -1,5 +1,6 @@
 package TPO3.controller;
 
+import TPO3.dto.ConsumoDTO;
 import TPO3.dto.TarjetaDTO;
 import TPO3.model.*;
 
@@ -91,7 +92,7 @@ public class TarjetaController {
 
 
 
-    public static TarjetaDTO toDTO(Tarjeta tarjeta){
+    public static TarjetaDTO toDTOTarjeta(Tarjeta tarjeta){
         return new TarjetaDTO(ClienteController.toDTO(tarjeta.getCliente()),
                 tarjeta.getNumeroTarjeta(),
                 tarjeta.getTipoTarjeta(),
@@ -99,11 +100,30 @@ public class TarjetaController {
     }
 
 
-    public static  Tarjeta toModel(TarjetaDTO tarjetaDTO){
+    public static  Tarjeta toModelTarjeta(TarjetaDTO tarjetaDTO){
         return new Tarjeta(ClienteController.toModel(tarjetaDTO.getClienteDTO()),
                 new ArrayList<>(),
                 tarjetaDTO.getNroTarjeta(),
                 tarjetaDTO.getTipoTarjeta(),
                 Float.parseFloat(tarjetaDTO.getCargo()));
+    }
+
+
+
+    public static ConsumoDTO toDTOConsumo (Consumo consumo){
+        return new ConsumoDTO( String.valueOf(consumo.getCodigo()),
+                String.valueOf(consumo.getMes()),
+                String.valueOf(consumo.getAño())
+                , String.valueOf(consumo.getNombreEstablecimiento()),
+                String.valueOf(consumo.getMonto()));
+    }
+
+
+    public static Consumo toModelConsumo(ConsumoDTO consumoDTO){
+        return new Consumo(Integer.parseInt(consumoDTO.getCodigoConsumo())
+                      , Integer.parseInt(consumoDTO.getMesConsumo())
+                      ,Integer.parseInt(consumoDTO.getAñoConsumo())
+                     , consumoDTO.getNombreEstablecimientoConsumo()
+                     ,Integer.parseInt(consumoDTO.getMontoConsumo()));
     }
 }

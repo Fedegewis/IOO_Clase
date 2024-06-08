@@ -1,4 +1,4 @@
-package TPO3;
+package TPO3.main;
 
 import TPO3.controller.ClienteController;
 import TPO3.controller.TarjetaController;
@@ -29,20 +29,12 @@ public class Main {
         tarjetaController.altaTarjetaDeCredito(clienteNuevo, "1234", 4.45F);
         tarjetaController.altaTarjetaDeCredito(clienteNuevo, "1234", 4.45F);
 
-        // Ejemplo 1: Consumo en un restaurante en enero de 2022
-        Consumo consumo1 = new Consumo(1, 1, 2023, "Restaurante El Fogoncito", 250.0f);
 
-        // Ejemplo 2: Consumo en una tienda de ropa en febrero de 2022
-        Consumo consumo2 = new Consumo(2, 2, 2023, "Tienda de Ropa Fashion", 500.0f);
-
-        // Ejemplo 3: Consumo en un cine en marzo de 2022
-        Consumo consumo3 = new Consumo(3, 3, 2023, "Cineplex", 150.0f);
-
-        // Ejemplo 4: Consumo en un supermercado en abril de 2022
-        Consumo consumo4 = new Consumo(4, 4, 2023, "Supermercado La Estrella", 800.0f);
-
-        // Ejemplo 5: Consumo en un hotel en mayo de 2022
-        Consumo consumo5 = new Consumo(5, 5, 2023, "Hotel 5 Estrellas", 2000.0f);
+        Consumo consumo1 = new Consumo(1, 1, 2023, "UADE", 250.0f);
+        Consumo consumo2 = new Consumo(2, 2, 2023, "Adidas", 500.0f);
+        Consumo consumo3 = new Consumo(3, 3, 2023, "Disco", 150.0f);
+        Consumo consumo4 = new Consumo(4, 4, 2023, "Coto", 800.0f);
+        Consumo consumo5 = new Consumo(5, 5, 2023, "UADE", 2000.0f);
 
 
         List<Consumo> consumosDebito = new ArrayList<Consumo>();

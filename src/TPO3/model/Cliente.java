@@ -13,7 +13,6 @@ public class Cliente {
     }
 
 
-    public boolean getCliente(int dni) {return  true;}
 
     public int getDni() {return dni;}
 
