@@ -18,7 +18,10 @@ public class Main {
 
         clienteController.crearCliente(clienteNuevo);
         clienteController.crearCliente(clienteNuevo);
+
+
         // En este main mi idea es poder demostrar como primero al crear un cliente repetido en la misma instancia primero lo crea y luego lo rechaza
+
         TarjetaController tarjetaController = TarjetaController.getInstance();
 
         tarjetaController.altaTarjetaDeDebito(clienteNuevo, "1234", 4.45F);
@@ -30,6 +33,8 @@ public class Main {
 
         Consumo consumo1 = new Consumo(1, 1, 2023, "UADE", 250.0f);
         Consumo consumo2 = new Consumo(2, 2, 2023, "Adidas", 500.0f);
+
+
         Consumo consumo3 = new Consumo(3, 3, 2023, "Disco", 150.0f);
         Consumo consumo4 = new Consumo(4, 4, 2023, "Coto", 800.0f);
         Consumo consumo5 = new Consumo(5, 5, 2023, "UADE", 2000.0f);
@@ -53,7 +58,6 @@ public class Main {
         System.out.println("El total de credito es: "+ totalC);
 
         // En este main mi idea es poder demostrar como puede calcular tanto Consumo real para Tarjeta de debito y de credito y el funcionamiento correcto
-
 
 
     }

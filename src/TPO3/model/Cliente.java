@@ -3,6 +3,7 @@ package TPO3.model;
 
 public class Cliente {
 
+
     private String nombre;
     private int dni;
 

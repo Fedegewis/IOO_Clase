@@ -5,13 +5,14 @@ import java.util.Collection;
 
 public class TarjetaDebito extends Tarjeta {
 
+    private float devIVA;
 
     public TarjetaDebito(Cliente cliente, Collection consumos, String numeroTarjeta, String tipoTarjeta, float cargo, float devIVA) {
         super(cliente, consumos, numeroTarjeta, tipoTarjeta, cargo);
         this.devIVA = devIVA;
     }
 
-    private float devIVA;
+
 
     public float getDevIVA() {return devIVA;}
 

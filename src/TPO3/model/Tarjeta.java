@@ -25,7 +25,6 @@ public class Tarjeta {
 
 
     public void cargarConsumo(Consumo consumo) {
-        List<Consumo> consumos=new ArrayList<>();
         consumos.add(new Consumo(consumo.getCodigo()
                 ,consumo.getMes()
                 ,consumo.getAño()

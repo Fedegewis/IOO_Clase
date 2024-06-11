@@ -8,9 +8,6 @@ public class TarjetaDTO {
 
 
     private ClienteDTO clienteDTO;
-
-
-
     private Collection<ConsumoDTO> consumoDTO;
     private String nroTarjeta;
     private String tipoTarjeta;

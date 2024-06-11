@@ -1,6 +1,7 @@
 package Clase28deMayo.src.uade.edu.ar.ui.menu;
 
 import Clase28deMayo.src.uade.edu.ar.ui.table.CustomTable;
+import Clase28deMayo.src.uade.edu.ar.ui.table.Formulario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,9 @@ public class Menu2 extends JFrame implements ActionListener {
         JMenuItem table = new JMenuItem("Table");
         table.addActionListener(this);
         file.add(table);
+        JMenuItem formulario = new JMenuItem("Formulario");
+        formulario.addActionListener(this);
+        file.add(formulario);
     }
 
     @Override
@@ -43,6 +47,14 @@ public class Menu2 extends JFrame implements ActionListener {
                 throw new RuntimeException(ex);
             }
             myApp.setVisible(true);
+        } else if(choice.equals("Formulario")){
+            Formulario form;
+            try{
+                form=new Formulario("Formulario");
+            }catch (Exception ex){
+                throw new RuntimeException(ex);
+            }
+            form.setVisible(true);
         }
     }
 

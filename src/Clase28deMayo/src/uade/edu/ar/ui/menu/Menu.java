@@ -52,7 +52,7 @@ public class Menu extends JFrame implements ActionListener {
         setLayout(null); //Layout absoluto
         setTitle("Menu IOO"); //Título del JFrame
         setSize(300, 200); //Dimensiones del JFrame
-        setResizable(false); //No redimensionable
+        setResizable(true); //No redimensionable
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerrar proceso al cerrar ventana
         setVisible(true); //Mostrar JFrame
     }

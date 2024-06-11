@@ -24,9 +24,9 @@ public class ClienteController {
         return INSTANCE;
     }
 
-    private ClienteDTO buscarClienteDNI(String dni) {
+    public ClienteDTO buscarClienteDNI(String dni) {
         for (Cliente cliente : clientes){
-            if(dni != null && dni.trim().equalsIgnoreCase(String.valueOf(cliente.getDni()).trim())){
+            if(dni != null && dni.equals(String.valueOf(cliente.getDni()))){
                 return toDTO(cliente);
             }
         }
@@ -57,8 +57,8 @@ public class ClienteController {
 
 
     public static Cliente toModel(ClienteDTO clienteDTO){
-        int dni=Integer.parseInt(clienteDTO.getDniCliente());
-        return new Cliente(clienteDTO.getNombreCliente(),dni);
+        return new Cliente(clienteDTO.getNombreCliente()
+                ,Integer.parseInt(clienteDTO.getDniCliente()));
     }
 
 }

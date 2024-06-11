@@ -4,13 +4,14 @@ import java.util.Collection;
 
 public class TarjetaCredito extends Tarjeta {
 
+    private float interes;
 
     public TarjetaCredito(Cliente cliente, Collection consumos, String numeroTarjeta, String tipoTarjeta, float cargo) {
         super(cliente, consumos, numeroTarjeta, tipoTarjeta, cargo);
         this.interes = interes;
     }
 
-    private float interes;
+
 
     public float getInteres() {return interes;}
 
