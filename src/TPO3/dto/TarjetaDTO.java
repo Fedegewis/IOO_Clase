@@ -1,7 +1,5 @@
 package TPO3.dto;
 
-import TPO3.model.Consumo;
-
 import java.util.Collection;
 
 public class TarjetaDTO {

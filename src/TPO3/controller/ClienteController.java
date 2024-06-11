@@ -33,15 +33,23 @@ public class ClienteController {
         return null;
     }
 
+    public Collection<ClienteDTO> buscarTodosLosClientes(){
+       Collection<ClienteDTO> dtos=new ArrayList<>();
+       for(Cliente cliente : clientes){
+           dtos.add(toDTO(cliente));
+       }
+       return dtos;
+    }
+
     public boolean crearCliente(ClienteDTO clienteDTO) {
         if (clienteDTO != null && clienteDTO.getDniCliente() != null ){
             if (buscarClienteDNI(clienteDTO.getDniCliente()) == null){
                 Cliente cliente = toModel(clienteDTO);
                 clientes.add(cliente);
-                System.out.println("Cliente " + clienteDTO.getDniCliente() + " guardado con éxito");
+                //System.out.println("Cliente " + clienteDTO.getDniCliente() + " guardado con éxito");
                 return true;
             }
-            System.out.println("Cliente "+ clienteDTO.getDniCliente() +" ya registrado");
+            //System.out.println("Cliente "+ clienteDTO.getDniCliente() +" ya registrado");
             return false;
         }
         return false;
@@ -50,7 +58,7 @@ public class ClienteController {
 
 
 
-    public static ClienteDTO toDTO (Cliente cliente){
+    public static ClienteDTO toDTO(Cliente cliente){
         return  new ClienteDTO(cliente.getNombre()
                 ,String.valueOf(cliente.getDni()));
     }

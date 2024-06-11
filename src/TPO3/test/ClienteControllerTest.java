@@ -1,8 +1,11 @@
 package TPO3.test;
 
+import Ioo_Test.model.Cliente;
 import TPO3.controller.ClienteController;
 import TPO3.dto.ClienteDTO;
 import org.junit.jupiter.api.Test;
+
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +38,17 @@ class ClienteControllerTest {
         assertNull(dtobusqueda);
     }
 
+
+    @Test
+    void buscarTodosLosClientes(){
+        clienteController=ClienteController.getInstance();
+        dto=new ClienteDTO("Tomas","444");
+        dto2=new ClienteDTO("Federico","489");
+        clienteController.crearCliente(dto);
+        clienteController.crearCliente(dto2);
+        Collection<ClienteDTO> dtoCollection=clienteController.buscarTodosLosClientes();
+        assertEquals(2,dtoCollection.size());
+    }
     @Test
     void crearCliente() {
     }

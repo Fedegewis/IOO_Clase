@@ -5,17 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Formulario extends JFrame  {
+
+public class Formulario extends JFrame   {
         private JLabel lblNombre,lblDni;
         private JTextField txtNombre,txtDni;
         private JButton btnAceptar,btnLimpiar;
 
 
-
-        public Formulario(String title){
+    public Formulario(String title){
             super(title);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setSize(300,300);
+            this.setSize(400,400);
             this.setVisible(true);
             this.setTitle("Formulario");
 
@@ -64,7 +64,6 @@ public class Formulario extends JFrame  {
         Formulario form = new Formulario("Formulario");
         form.setVisible(true);
     }
-
 
 
 
