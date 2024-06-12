@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class CrearTarjetaUI extends JFrame {
-    private JComboBox<ClienteDTO> Clientes;
+    private JComboBox<String> Clientes;
     private JLabel lblClientes,lblNroTarjeta,lblCargo,lblTipoTarjeta;
     private JTextField txtNroTarjeta, txtCargo,txtTipoTarjeta;
     private JButton btnAgregar, btnLimpiar;
@@ -36,12 +36,12 @@ public class CrearTarjetaUI extends JFrame {
         lblCargo = new JLabel("Cargo");
         lblTipoTarjeta = new JLabel("Tipo de Tarjeta");
 
-        Clientes = new JComboBox<ClienteDTO>();
+        Clientes = new JComboBox<String>();
         clienteController = ClienteController.getInstance();
         Collection<ClienteDTO> dtos = clienteController.buscarTodosLosClientes();
         List<ClienteDTO> clienteDTOList = new ArrayList<>(dtos);
         for (ClienteDTO clienteDTO : clienteDTOList) {
-            Clientes.addItem(clienteDTO);
+            Clientes.addItem(clienteDTO.getNombreCliente());
         }
 
         txtNroTarjeta = new JTextField();
@@ -74,6 +74,7 @@ public class CrearTarjetaUI extends JFrame {
                     }
                 }
         );
+        //SACARLE EL JCOMBOBOX
 
         btnAgregar.addActionListener(
                 new ActionListener() {
