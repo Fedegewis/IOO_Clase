@@ -51,5 +51,12 @@ class ClienteControllerTest {
     }
     @Test
     void crearCliente() {
+        clienteController=ClienteController.getInstance();
+        dto=new ClienteDTO("Tomas","444");
+        dto2=new ClienteDTO("Federico","489");
+        boolean dto1Boolean=clienteController.crearCliente(dto);
+        boolean dto2Boolean =clienteController.crearCliente(dto2);
+        assertEquals(dto1Boolean,true);
+        assertEquals(dto2Boolean,true);
     }
 }

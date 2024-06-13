@@ -45,6 +45,7 @@ public class MenuPrincipal extends JFrame {
 	/* botones */
 	JButton btnCrearUsuarioIndustrial;
 	JButton btnConsultarConsumo;
+	JButton btnConsultarUsuarios;
 
 	/**
 	 * 
@@ -73,7 +74,7 @@ public class MenuPrincipal extends JFrame {
 	 */
 	public MenuPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -106,6 +107,7 @@ public class MenuPrincipal extends JFrame {
 		
 		btnCrearUsuarioIndustrial 	= new JButton("Crear Usuario Industrial");
 		btnConsultarConsumo 		= new JButton("Consultar Consumo");
+		btnConsultarUsuarios=new JButton("Consultar usuarios");
 		
 		JButton btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
 		btnCrearUsuarioResidencial.addActionListener(new ActionListener() {
@@ -118,7 +120,7 @@ public class MenuPrincipal extends JFrame {
 					throw new RuntimeException(ex);
 				}
 				altaUsuarioResidencial.setVisible(true);
-
+/*
 				//oculta los otros botones
 				btnCrearUsuarioIndustrial.setVisible(false);
 				btnConsultarConsumo.setVisible(false);
@@ -176,13 +178,13 @@ public class MenuPrincipal extends JFrame {
 				mostrarCamposAltaUsuarioResi();
 				contentPane.revalidate();
 				contentPane.repaint();
-
+				*/
 			}
 		});
 		btnCrearUsuarioResidencial.setBounds(107, 79, 210, 23);
 		contentPane.add(btnCrearUsuarioResidencial);
-		
-		
+
+
 		btnCrearUsuarioIndustrial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -199,7 +201,17 @@ public class MenuPrincipal extends JFrame {
 		});
 		btnConsultarConsumo.setBounds(107, 182, 210, 23);
 		contentPane.add(btnConsultarConsumo);
-		
+
+
+		btnConsultarUsuarios.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnConsultarUsuarios.setBounds(107,234,210,23);
+		contentPane.add(btnConsultarUsuarios);
+
 		//guarda alta usuario
 		guardarUsuario_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

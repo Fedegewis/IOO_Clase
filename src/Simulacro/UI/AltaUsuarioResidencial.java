@@ -46,7 +46,7 @@ public class AltaUsuarioResidencial extends JFrame {
 	 */
 	public AltaUsuarioResidencial() {
 		setTitle("Alta Usuario Residencial");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 493, 396);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
