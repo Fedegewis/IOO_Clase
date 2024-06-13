@@ -140,7 +140,7 @@ public class AltaUsuarioResidencial extends JFrame {
 				String nom 		= textField.getText();
 				String dni 		= textField_1.getText();
 				String calle	= textField_2.getText();
-				String altura		= textField_3.getText();
+				String altura	= textField_3.getText();
 				String piso		= textField_4.getText();
 				String dpto		= textField_5.getText();
 				String cp		= textField_6.getText();
