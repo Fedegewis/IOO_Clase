@@ -14,6 +14,7 @@ public class EmpresaElectricaController {
 	private Vector<Factura> facturas;
 	private int numeroUsuario;
 	private static EmpresaElectricaController INSTANCE = null;
+
 	/* constructor*/
 	public EmpresaElectricaController(){
 		usuarios 	= new Vector<Usuario>();
@@ -56,7 +57,8 @@ public class EmpresaElectricaController {
 	/* alta usuarios */
 	public int crearUsuarioResidencial(UsuarioResidencialDTO dto){
 		if(!existeUSuarioResidencia(Integer.parseInt(dto.getDni()))){
-			UsuarioResidencial usuarioResidencial = new UsuarioResidencial(dto.getCalle(),Integer.parseInt(dto.getAltura()),Integer.parseInt(dto.getPiso()),dto.getDpto(),Integer.parseInt(dto.getCodigoPostal()),dto.getLocalidad(),dto.getProvincia(),dto.getNombre(),Integer.parseInt(dto.getDni()));
+			UsuarioResidencial usuarioResidencial = new UsuarioResidencial(dto.getCalle(),Integer.parseInt(dto.getAltura()),Integer.parseInt(dto.getPiso()),
+					dto.getDpto(),Integer.parseInt(dto.getCodigoPostal()),dto.getLocalidad(),dto.getProvincia(),dto.getNombre(),Integer.parseInt(dto.getDni()));
 			usuarios.add(usuarioResidencial);
 			
 			//genera nuevo numero de usuario
@@ -64,16 +66,19 @@ public class EmpresaElectricaController {
 			
 			//asigna el nuevo numero al usuario
 			usuarioResidencial.setNroUsuario(this.getNumeroUsuario());
-			System.out.println("Te cree el usuario");
+			System.out.println("Se creo el usuario");
 			return usuarioResidencial.getNroUsuario();
 		}else{
+			System.out.println("No se creo el usuario");
 			return 0;
 		}
 	}
 	
 	public int crearUsuarioInduntrial(UsuarioIndustrialDTO dto){
 		if(!existeUsuarioIndustrial(dto.getCuit())){
-			UsuarioIndustrial usuarioIndustrial = new UsuarioIndustrial(dto.getCalle(),Integer.parseInt (dto.getAltura()),Integer.parseInt(dto.getPiso()), dto.getDpto(),Integer.parseInt( dto.getDpto()),dto.getLocalidad(),dto.getProvincia(),dto.getRazonSocial(),dto.getCuit(), dto.getIIBB(),dto.getCondicionFiscal());
+			UsuarioIndustrial usuarioIndustrial = new UsuarioIndustrial(dto.getCalle(),Integer.parseInt (dto.getAltura()),Integer.parseInt(dto.getPiso()),
+					dto.getDpto(),Integer.parseInt( dto.getDpto()),dto.getLocalidad(),dto.getProvincia(),dto.getRazonSocial(),dto.getCuit(), dto.getIIBB(),
+					dto.getCondicionFiscal());
 			usuarios.add(usuarioIndustrial);
 			
 			//genera nuevo numero de usuario
@@ -81,9 +86,10 @@ public class EmpresaElectricaController {
 			
 			//asigna el nuevo numero al usuario
 			usuarioIndustrial.setNroUsuario(this.getNumeroUsuario());
-			
+			System.out.println("Se creo el usuario");
 			return usuarioIndustrial.getNroUsuario();
 		}else{
+			System.out.println("No se creo el usuario");
 			return 0;
 		}
 	}

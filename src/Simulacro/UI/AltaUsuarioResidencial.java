@@ -22,8 +22,7 @@ public class AltaUsuarioResidencial extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private EmpresaElectricaController empresaElectricaController = null;
-	private UsuarioResidencialDTO dto;
+
 
 
 	/**
@@ -46,7 +45,7 @@ public class AltaUsuarioResidencial extends JFrame {
 	 * Create the frame.
 	 */
 	public AltaUsuarioResidencial() {
-		setTitle("Alta UsuarioResidencial");
+		setTitle("Alta Usuario Residencial");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 493, 396);
 		contentPane = new JPanel();
@@ -166,6 +165,7 @@ public class AltaUsuarioResidencial extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
 			}
 		});
 		btnCancelar.setBounds(303, 279, 114, 23);

@@ -66,10 +66,12 @@ public class UsuarioIndustrial extends Usuario {
 
 	@Override
 	public boolean sosUsuarioPorDato(int dato) {
+		return sosCuitUsuario(String.valueOf(dato));
+		/*
 		if(this.getCuit().equals(dato)){
 			return true;
 		}else{
 			return false;
-		}
+		}*/
 	}
 }

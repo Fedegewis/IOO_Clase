@@ -110,6 +110,7 @@ public class MenuPrincipal extends JFrame {
 		JButton btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
 		btnCrearUsuarioResidencial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				AltaUsuarioResidencial altaUsuarioResidencial;
 				try{
 					altaUsuarioResidencial=new AltaUsuarioResidencial();
@@ -121,7 +122,7 @@ public class MenuPrincipal extends JFrame {
 				//oculta los otros botones
 				btnCrearUsuarioIndustrial.setVisible(false);
 				btnConsultarConsumo.setVisible(false);
-				
+
 				//muestra formulario de carga
 				
 				nombre_lbl.setBounds(10, 5, 210, 23);
@@ -171,9 +172,11 @@ public class MenuPrincipal extends JFrame {
 				
 				guardarUsuario_btn.setBounds(100, 5, 210, 23);
 				contentPane.add(guardarUsuario_btn);
-				
+				guardarUsuario_btn.setVisible(true);
 				mostrarCamposAltaUsuarioResi();
-				
+				contentPane.revalidate();
+				contentPane.repaint();
+
 			}
 		});
 		btnCrearUsuarioResidencial.setBounds(107, 79, 210, 23);

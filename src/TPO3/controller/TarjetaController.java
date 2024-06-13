@@ -35,12 +35,12 @@ public class TarjetaController {
 
 
 
-    public float calcularConsumoReal(Tarjeta tarjeta,int mesI, int añoI, int mesF,int añoF) {
+    public float calcularConsumoReal(TarjetaDTO tarjetaDTO,int mesI, int añoI, int mesF,int añoF) {
         float TotalConsumo=0;
-        boolean isTC = tarjeta.getTipoTarjeta().equals("TC");
-        boolean isTD = tarjeta.getTipoTarjeta().equals("TD");
-        float cargo = tarjeta.getCargo();
-
+        boolean isTC = tarjetaDTO.getTipoTarjeta().equals("TC");
+        boolean isTD = tarjetaDTO.getTipoTarjeta().equals("TD");
+        float cargo =  Float.parseFloat(tarjetaDTO.getCargo()) ;
+        Tarjeta tarjeta=toModelTarjeta(tarjetaDTO);
         for (Consumo consumo : tarjeta.getConsumos()) {
             if(consumo.getMes() >= mesI && consumo.getAño() >=  añoI && consumo.getMes() <= mesF && consumo.getAño() <=  añoF){
                 if (isTC) {
