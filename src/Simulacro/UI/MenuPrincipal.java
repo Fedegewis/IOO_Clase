@@ -187,12 +187,20 @@ public class MenuPrincipal extends JFrame {
 
 		btnCrearUsuarioIndustrial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
+				AltaUsuarioIndustrial usuarioIndustrial;
+				try {
+					usuarioIndustrial=new AltaUsuarioIndustrial();
+				}catch (Exception ex ){
+					throw new RuntimeException(ex);
+				}
+				usuarioIndustrial.setVisible(true);
 			}
 		});
 		btnCrearUsuarioIndustrial.setBounds(107, 130, 210, 23);
 		contentPane.add(btnCrearUsuarioIndustrial);
-		
+
+
 		
 		btnConsultarConsumo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
