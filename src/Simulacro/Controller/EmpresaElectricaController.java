@@ -1,6 +1,7 @@
 package Simulacro.Controller;
 
 
+import Simulacro.DTO.UsuarioDTO;
 import Simulacro.DTO.UsuarioIndustrialDTO;
 import Simulacro.DTO.UsuarioResidencialDTO;
 import Simulacro.Model.*;
@@ -148,6 +149,7 @@ public class EmpresaElectricaController {
 		}
 		return null;
 	}
+
 
 
 

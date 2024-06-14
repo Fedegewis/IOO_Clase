@@ -216,7 +216,13 @@ public class MenuPrincipal extends JFrame {
 		btnConsultarUsuarios.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				ExisteUsuario busquedaDeUsuarios;
+				try {
+					busquedaDeUsuarios=new ExisteUsuario();
+				}catch (Exception ex ){
+					throw new RuntimeException(ex);
+				}
+				busquedaDeUsuarios.setVisible(true);
 			}
 		});
 		btnConsultarUsuarios.setBounds(107,234,210,23);

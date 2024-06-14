@@ -59,15 +59,15 @@ public class Menu extends JFrame implements ActionListener {
             throw new RuntimeException(ex);
         }
             crearTarjeta.setVisible(true);
-        }  /* else if (choice.equals("Ver Facturas")) {
-            VerFacturasUI verFacturas;
+        }   else if (choice.equals("Ver Tarjetas")) {
+            VerTarjetasUI verTarjetas;
             try{
-                verFacturas=new VerFacturasUI();
+                verTarjetas=new VerTarjetasUI();
             }catch (Exception ex){
                 throw new RuntimeException(ex);
             }
-            verFacturas.setVisible(true);
-        }*/
+            verTarjetas.setVisible(true);
+        }
 
     }
 
