@@ -43,6 +43,7 @@ public class MenuPrincipal extends JFrame {
 	JButton guardarUsuario_btn;
 	
 	/* botones */
+	JButton btnCrearUsuarioResidencial;
 	JButton btnCrearUsuarioIndustrial;
 	JButton btnConsultarConsumo;
 	JButton btnConsultarUsuarios;
@@ -109,7 +110,7 @@ public class MenuPrincipal extends JFrame {
 		btnConsultarConsumo 		= new JButton("Consultar Consumo");
 		btnConsultarUsuarios=new JButton("Consultar usuarios");
 		
-		JButton btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
+		btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
 		btnCrearUsuarioResidencial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -120,7 +121,8 @@ public class MenuPrincipal extends JFrame {
 					throw new RuntimeException(ex);
 				}
 				altaUsuarioResidencial.setVisible(true);
-/*
+
+				/*
 				//oculta los otros botones
 				btnCrearUsuarioIndustrial.setVisible(false);
 				btnConsultarConsumo.setVisible(false);
