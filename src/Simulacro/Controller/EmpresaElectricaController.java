@@ -115,7 +115,7 @@ public class EmpresaElectricaController {
 	}
 	
 	public boolean existeUsuarioIndustrial(String cuit){
-		Usuario usuario = buscarUsuarioPorCuit(cuit);
+		UsuarioDTO usuario = buscarUsuarioPorCuit(cuit);
 		if(usuario!= null){
 			return true;
 		}else{
@@ -124,7 +124,7 @@ public class EmpresaElectricaController {
 	}
 	
 	public boolean existeUSuarioResidencia(int dni){
-		Usuario usuario = buscarUsuarioPorDni(dni);
+		UsuarioDTO usuario = buscarUsuarioPorDni(dni);
 		if(usuario!= null){
 			return true;
 		}else{
@@ -132,26 +132,43 @@ public class EmpresaElectricaController {
 		}
 	}
 	
-	public Usuario buscarUsuarioPorDni(int dni){
+	public UsuarioDTO buscarUsuarioPorDni(int dni){
 		for(int i= 0;i < usuarios.size();i++){
 			if(usuarios.elementAt(i).sosUsuarioPorDato(dni)){
-				return usuarios.elementAt(i);
+				return toDTO(usuarios.elementAt(i));
 			}
 		}
 		return null;
 	}
 	
-	public Usuario buscarUsuarioPorCuit(String cuit){
+	public UsuarioDTO buscarUsuarioPorCuit(String cuit){
 		for(int i= 0;i < usuarios.size();i++){
 			if(usuarios.elementAt(i).sosUsuarioPorDato(Integer.parseInt(cuit))){
-				return usuarios.elementAt(i);
+				return toDTO(usuarios.elementAt(i));
 			}
 		}
 		return null;
 	}
 
 
+	public static UsuarioDTO toDTO(Usuario usuario){
+		return new UsuarioDTO(String.valueOf(usuario.getNroUsuario()), usuario.getCalle(),String.valueOf(usuario.getAltura()),String.valueOf(usuario.getPiso()),
+				usuario.getDpto(),String.valueOf(usuario.getCodigoPostal()), usuario.getLocalidad(), usuario.getProvincia());
+	}
 
 
+	public static Usuario toModel(UsuarioDTO dto){
+		return new Usuario(dto.getCalle(), Integer.parseInt(dto.getAltura()), Integer.parseInt(dto.getPiso()), dto.getDpto(),
+				Integer.parseInt(dto.getCodigoPostal()), dto.getLocalidad(), dto.getProvincia()) {
+			@Override
+			public int obtenerUltimoConsumo(int anio, int bimestre) {
+				return 0;
+			}
 
+			@Override
+			public boolean sosUsuarioPorDato(int dato) {
+				return false;
+			}
+		};
+		}
 }
