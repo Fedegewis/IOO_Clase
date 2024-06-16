@@ -12,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class TarjetaControllerTest {
 
     ClienteDTO dto1= new ClienteDTO("Federico","112");
-    ClienteDTO dto2= new ClienteDTO("Federico","112");
+    ClienteDTO dto2= new ClienteDTO("Federico","1128");
+
+
     @Test
     void altaTarjetaDeCredito() {
         TarjetaController tarjeta= TarjetaController.getInstance();
@@ -40,6 +42,6 @@ class TarjetaControllerTest {
         tarjeta.altaTarjetaDeDebito(dto1,"45",40f);
         tarjeta.altaTarjetaDeDebito(dto2,"79",30f);
         Collection<TarjetaDTO> dtos=tarjeta.buscarTodasLasTarjetas();
-        assertEquals(2,dtos.size());
+        assertEquals(4,dtos.size());
     }
 }
