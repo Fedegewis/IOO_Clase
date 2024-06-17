@@ -44,10 +44,12 @@ class ClienteControllerTest {
         clienteController=ClienteController.getInstance();
         dto=new ClienteDTO("Tomas","444");
         dto2=new ClienteDTO("Federico","489");
+        ClienteDTO dto3=new ClienteDTO("Federico","48974");
         clienteController.crearCliente(dto);
         clienteController.crearCliente(dto2);
+        clienteController.crearCliente(dto3);
         Collection<ClienteDTO> dtoCollection=clienteController.buscarTodosLosClientes();
-        assertEquals(2,dtoCollection.size());
+        assertEquals(3,dtoCollection.size());
     }
     @Test
     void crearCliente() {

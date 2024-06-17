@@ -6,6 +6,8 @@ import Simulacro.DTO.UsuarioIndustrialDTO;
 import Simulacro.DTO.UsuarioResidencialDTO;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmpresaElectricaControllerTest {
@@ -94,5 +96,35 @@ class EmpresaElectricaControllerTest {
         assertNotEquals(null,dtobuscar1);
         assertNotEquals(null,dtoBuscar2);
         assertNull(dtoBuscar3);
+    }
+
+    @Test
+    void buscarUsuariosIndustrial(){
+        empresaElectricaController=EmpresaElectricaController.getInstance();
+        UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4892","45","A");
+        UsuarioIndustrialDTO dto1=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48942","45","A");
+        UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48792","45","A");
+        UsuarioIndustrialDTO dto3=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","489442","45","A");
+        empresaElectricaController.crearUsuarioInduntrial(dto);
+        empresaElectricaController.crearUsuarioInduntrial(dto1);
+        empresaElectricaController.crearUsuarioInduntrial(dto2);
+        empresaElectricaController.crearUsuarioInduntrial(dto3);
+        Collection<UsuarioIndustrialDTO> List=empresaElectricaController.buscarUsuariosIndustrial();
+        assertEquals(4,List.size());
+    }
+
+    @Test
+    void buscarUsuariosResidencial(){
+        empresaElectricaController=EmpresaElectricaController.getInstance();
+        UsuarioResidencialDTO dto=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4447");
+        UsuarioResidencialDTO dto1=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "444447");
+        UsuarioResidencialDTO dto2=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44446877");
+        UsuarioResidencialDTO dto3=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44445647");
+        empresaElectricaController.crearUsuarioResidencial(dto);
+        empresaElectricaController.crearUsuarioResidencial(dto1);
+        empresaElectricaController.crearUsuarioResidencial(dto2);
+        empresaElectricaController.crearUsuarioResidencial(dto3);
+        Collection<UsuarioResidencialDTO> dtoList=empresaElectricaController.buscarUsuariosResidencial();
+        assertEquals(4,dtoList.size());
     }
 }

@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MenuPrincipal extends JFrame {
-	
+
 	/* alta usuario residencial */
 	JTextField nombre_txt;
 	JTextField dni_txt;
@@ -29,7 +29,7 @@ public class MenuPrincipal extends JFrame {
 	JTextField cp_txt;
 	JTextField loca_txt;
 	JTextField pcia_txt;
-	
+
 	JLabel nombre_lbl;
 	JLabel dni_lbl;
 	JLabel calle_lbl;
@@ -41,15 +41,18 @@ public class MenuPrincipal extends JFrame {
 	JLabel pcia_lbl;
 	JLabel salidaAltaUsuarioResi;
 	JButton guardarUsuario_btn;
-	
+
 	/* botones */
 	JButton btnCrearUsuarioResidencial;
 	JButton btnCrearUsuarioIndustrial;
-	JButton btnConsultarConsumo;
 	JButton btnConsultarUsuarios;
+	JButton btnUsuarios;
+	JButton btnUsuariosResidencial;
+	JButton btnUsuariosIndustrial;
+
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -75,13 +78,13 @@ public class MenuPrincipal extends JFrame {
 	 */
 	public MenuPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 350);
+		setBounds(100, 100, 450, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-
+/*
 		
 		nombre_txt 	= new JTextField();
 		dni_txt 	= new JTextField();
@@ -104,83 +107,27 @@ public class MenuPrincipal extends JFrame {
 		pcia_lbl		 			= new JLabel("Pcia: ");
 		salidaAltaUsuarioResi	 	= new JLabel("Salida: ");
 		guardarUsuario_btn			= new JButton("Guardar");
-		
-		
-		btnCrearUsuarioIndustrial 	= new JButton("Crear Usuario Industrial");
-		btnConsultarConsumo 		= new JButton("Consultar Consumo");
-		btnConsultarUsuarios=new JButton("Consultar usuarios");
-		
+		*/
+
+		btnCrearUsuarioIndustrial = new JButton("Crear Usuario Industrial");
+		btnConsultarUsuarios = new JButton("Consultar usuarios");
+		btnUsuarios = new JButton("Usuarios Totales");
+		btnUsuariosIndustrial =new JButton("Usurios Industriales");
+		btnUsuariosResidencial=new JButton("Usuarios Residenciales");
+
+
 		btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
 		btnCrearUsuarioResidencial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				AltaUsuarioResidencial altaUsuarioResidencial;
-				try{
-					altaUsuarioResidencial=new AltaUsuarioResidencial();
-				}catch (Exception ex){
+				try {
+					altaUsuarioResidencial = new AltaUsuarioResidencial();
+				} catch (Exception ex) {
 					throw new RuntimeException(ex);
 				}
 				altaUsuarioResidencial.setVisible(true);
 
-				/*
-				//oculta los otros botones
-				btnCrearUsuarioIndustrial.setVisible(false);
-				btnConsultarConsumo.setVisible(false);
-
-				//muestra formulario de carga
-				
-				nombre_lbl.setBounds(10, 5, 210, 23);
-				contentPane.add(nombre_lbl);
-				nombre_txt.setBounds(10, 50, 210, 23);
-				contentPane.add(nombre_txt);
-				
-				dni_lbl.setBounds(20, 5, 210, 23);
-				contentPane.add(dni_lbl);
-				dni_txt.setBounds(20, 50, 210, 23);
-				contentPane.add(dni_txt);
-				
-				calle_lbl.setBounds(30, 5, 210, 23);
-				contentPane.add(calle_lbl);
-				calle_txt.setBounds(30, 50, 210, 23);
-				contentPane.add(calle_txt);
-				
-				altura_lbl.setBounds(40, 5, 210, 23);
-				contentPane.add(altura_lbl);
-				altura_txt.setBounds(40, 50, 210, 23);
-				contentPane.add(altura_txt);
-				
-				piso_lbl.setBounds(50, 5, 210, 23);
-				contentPane.add(piso_lbl);
-				piso_txt.setBounds(50, 50, 210, 23);
-				contentPane.add(piso_txt);
-				
-				dpto_lbl.setBounds(60, 5, 210, 23);
-				contentPane.add(dpto_lbl);
-				dpto_txt.setBounds(60, 50, 210, 23);
-				contentPane.add(dpto_txt);
-				
-				cp_lbl.setBounds(70, 5, 210, 23);
-				contentPane.add(cp_lbl);
-				cp_txt.setBounds(70, 50, 210, 23);
-				contentPane.add(cp_txt);
-				
-				loca_lbl.setBounds(80, 5, 210, 23);
-				contentPane.add(loca_lbl);
-				loca_txt.setBounds(80, 50, 210, 23);
-				contentPane.add(loca_txt);
-				
-				pcia_lbl.setBounds(90, 5, 210, 23);
-				contentPane.add(pcia_lbl);
-				pcia_txt.setBounds(90, 50, 210, 23);
-				contentPane.add(pcia_txt);
-				
-				guardarUsuario_btn.setBounds(100, 5, 210, 23);
-				contentPane.add(guardarUsuario_btn);
-				guardarUsuario_btn.setVisible(true);
-				mostrarCamposAltaUsuarioResi();
-				contentPane.revalidate();
-				contentPane.repaint();
-				*/
 			}
 		});
 		btnCrearUsuarioResidencial.setBounds(107, 79, 210, 23);
@@ -192,25 +139,15 @@ public class MenuPrincipal extends JFrame {
 
 				AltaUsuarioIndustrial usuarioIndustrial;
 				try {
-					usuarioIndustrial=new AltaUsuarioIndustrial();
-				}catch (Exception ex ){
+					usuarioIndustrial = new AltaUsuarioIndustrial();
+				} catch (Exception ex) {
 					throw new RuntimeException(ex);
 				}
 				usuarioIndustrial.setVisible(true);
 			}
 		});
-		btnCrearUsuarioIndustrial.setBounds(107, 130, 210, 23);
+		btnCrearUsuarioIndustrial.setBounds(107, 131, 210, 23);
 		contentPane.add(btnCrearUsuarioIndustrial);
-
-
-		
-		btnConsultarConsumo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnConsultarConsumo.setBounds(107, 182, 210, 23);
-		contentPane.add(btnConsultarConsumo);
 
 
 		btnConsultarUsuarios.addActionListener(new ActionListener() {
@@ -218,16 +155,63 @@ public class MenuPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ExisteUsuario busquedaDeUsuarios;
 				try {
-					busquedaDeUsuarios=new ExisteUsuario();
-				}catch (Exception ex ){
+					busquedaDeUsuarios = new ExisteUsuario();
+				} catch (Exception ex) {
 					throw new RuntimeException(ex);
 				}
 				busquedaDeUsuarios.setVisible(true);
 			}
 		});
-		btnConsultarUsuarios.setBounds(107,234,210,23);
+		btnConsultarUsuarios.setBounds(107, 182, 210, 23);
 		contentPane.add(btnConsultarUsuarios);
 
+		btnUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TablaUsuarios usuarios;
+				try{
+					usuarios=new TablaUsuarios();
+				}catch (Exception ex){
+					throw new RuntimeException(ex);
+				}
+				usuarios.setVisible(true);
+			}
+		});
+
+		btnUsuarios.setBounds(107, 234, 210, 23);
+		contentPane.add(btnUsuarios);
+
+
+		btnUsuariosResidencial.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TablaUsuariosResidencial usuarios;
+				try{
+					usuarios=new TablaUsuariosResidencial();
+				}catch (Exception ex){
+					throw new RuntimeException(ex);
+				}
+				usuarios.setVisible(true);
+			}
+		});
+		btnUsuariosResidencial.setBounds(107,286,210,23);
+		contentPane.add(btnUsuariosResidencial);
+
+		btnUsuariosIndustrial.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TablaUsuariosIndustrial usuarios;
+				try{
+					usuarios=new TablaUsuariosIndustrial();
+				}catch (Exception ex){
+					throw new RuntimeException(ex);
+				}
+				usuarios.setVisible(true);
+			}
+		});
+		btnUsuariosIndustrial.setBounds(107,338,210,23);
+		contentPane.add(btnUsuariosIndustrial);
+
+		/*
 		//guarda alta usuario
 		guardarUsuario_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -295,5 +279,7 @@ public class MenuPrincipal extends JFrame {
 		loca_lbl.setVisible(false);
 		pcia_lbl.setVisible(false);
 		salidaAltaUsuarioResi.setVisible(false);
+	}*/
+
 	}
 }

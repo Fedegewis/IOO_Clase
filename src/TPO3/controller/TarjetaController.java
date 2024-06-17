@@ -53,7 +53,7 @@ public class TarjetaController {
         return TotalConsumo;
     }
 
-    private boolean clienteNoTieneTarjeta(ClienteDTO clienteDTO,String tipoTarjeta){
+    public boolean clienteNoTieneTarjeta(ClienteDTO clienteDTO,String tipoTarjeta){
         for (Tarjeta tarjeta: tarjetas){
             if(tipoTarjeta.equals("TC")&& tarjeta.getCliente().getDni() == Integer.parseInt(clienteDTO.getDniCliente()) && tarjeta.getTipoTarjeta().equals("TC")){
                 return false;
@@ -99,7 +99,7 @@ public class TarjetaController {
         return dtos;
     }
 
-    public float calcularDebitoFinDeMes(Consumo consumo, int iva) {return 0.0f;}
+    private float calcularDebitoFinDeMes(Consumo consumo, int iva) {return 0.0f;}
 
     public float calcularCreditoFinDeMes( Consumo consumo,  int interes) {return 0.0f;}
 

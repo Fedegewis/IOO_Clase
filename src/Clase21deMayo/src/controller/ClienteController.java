@@ -22,7 +22,6 @@ public class ClienteController {
             INSTANCE = new ClienteController();
         }
         return INSTANCE;
-
     }
 
     public List<ClienteDto> buscarTodosCliente(){

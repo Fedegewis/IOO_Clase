@@ -165,7 +165,7 @@ public class AltaUsuarioResidencial extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				dispose();
 			}
 		});
 		btnCancelar.setBounds(303, 279, 114, 23);

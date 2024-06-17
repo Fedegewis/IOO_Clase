@@ -75,5 +75,6 @@ public class Menu extends JFrame implements ActionListener {
     public static  void main(String [] args){
         Menu menu =new Menu();
         menu.setVisible(true);
+
     }
 }

@@ -5,7 +5,10 @@ import Simulacro.DTO.UsuarioDTO;
 import Simulacro.DTO.UsuarioIndustrialDTO;
 import Simulacro.DTO.UsuarioResidencialDTO;
 import Simulacro.Model.*;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Vector;
 
 public class EmpresaElectricaController {
@@ -13,6 +16,8 @@ public class EmpresaElectricaController {
 	private Vector<Usuario> usuarios;
 	private Vector<Tarifa> tarifas;
 	private Vector<Factura> facturas;
+	private Collection<UsuarioIndustrial> usuariosIndustrial;
+	private Collection<UsuarioResidencial> usuariosResidencial;
 	private int numeroUsuario;
 	private static EmpresaElectricaController INSTANCE = null;
 
@@ -21,6 +26,8 @@ public class EmpresaElectricaController {
 		usuarios 	= new Vector<Usuario>();
 		tarifas		= new Vector<Tarifa>();
 		facturas	= new Vector<Factura>();
+		usuariosResidencial= new ArrayList<>();
+		usuariosIndustrial=new ArrayList<>();
 
 	}
 	public static EmpresaElectricaController getInstance(){
@@ -55,12 +62,14 @@ public class EmpresaElectricaController {
 		usuarios.addElement(usI);
 	}
 	*/
+
 	/* alta usuarios */
 	public int crearUsuarioResidencial(UsuarioResidencialDTO dto){
 		if(!existeUSuarioResidencia(Integer.parseInt(dto.getDni()))){
 			UsuarioResidencial usuarioResidencial = new UsuarioResidencial(dto.getCalle(),Integer.parseInt(dto.getAltura()),Integer.parseInt(dto.getPiso()),
 					dto.getDpto(),Integer.parseInt(dto.getCodigoPostal()),dto.getLocalidad(),dto.getProvincia(),dto.getNombre(),Integer.parseInt(dto.getDni()));
 			usuarios.add(usuarioResidencial);
+			usuariosResidencial.add(usuarioResidencial);
 			
 			//genera nuevo numero de usuario
 			this.setNumeroUsuario(this.getNumeroUsuario() + 1);
@@ -81,7 +90,8 @@ public class EmpresaElectricaController {
 					dto.getDpto(),Integer.parseInt( dto.getDpto()),dto.getLocalidad(),dto.getProvincia(),dto.getRazonSocial(),dto.getCuit(), dto.getIIBB(),
 					dto.getCondicionFiscal());
 			usuarios.add(usuarioIndustrial);
-			
+			usuariosIndustrial.add(usuarioIndustrial);
+
 			//genera nuevo numero de usuario
 			this.setNumeroUsuario(this.getNumeroUsuario() + 1);
 			
@@ -94,7 +104,31 @@ public class EmpresaElectricaController {
 			return 0;
 		}
 	}
-	
+
+	public Collection<UsuarioDTO> buscarUsuarios(){
+		Collection<UsuarioDTO> dto=new ArrayList<>();
+		for(Usuario usuario:usuarios){
+			dto.add(toDTO(usuario));
+		}
+		return dto;
+	}
+
+	public Collection<UsuarioIndustrialDTO> buscarUsuariosIndustrial(){
+		Collection<UsuarioIndustrialDTO> dto= new ArrayList<>();
+		for (UsuarioIndustrial usuario: usuariosIndustrial){
+			dto.add(toDtoIndustrial(usuario));
+		}
+		return dto;
+	}
+
+	public Collection<UsuarioResidencialDTO> buscarUsuariosResidencial(){
+		Collection<UsuarioResidencialDTO> dto=new ArrayList<>();
+		for(UsuarioResidencial usuario:usuariosResidencial){
+			dto.add(toDtoResidencial(usuario));
+		}
+		return dto;
+	}
+
 	public Usuario buscarUsuario(int nroUsuario){
 		for(int i= 0;i < usuarios.size();i++){
 			if(usuarios.elementAt(i).sosUsuario(nroUsuario)){
@@ -171,4 +205,33 @@ public class EmpresaElectricaController {
 			}
 		};
 		}
+
+
+	public static UsuarioIndustrial toModelIndustrial(UsuarioIndustrialDTO dto){
+		return new UsuarioIndustrial(dto.getCalle(),Integer.parseInt(dto.getAltura()
+        ), Integer.parseInt(dto.getPiso()), dto.getDpto(), Integer.parseInt(dto.getCodigoPostal()), dto.getLocalidad(),
+				dto.getProvincia(), dto.getRazonSocial(), dto.getCuit(), dto.getIIBB(), dto.getCondicionFiscal());
+	}
+
+	public static UsuarioIndustrialDTO toDtoIndustrial(UsuarioIndustrial usuarioIndustrial){
+		return new UsuarioIndustrialDTO(usuarioIndustrial.getCalle(),String.valueOf(usuarioIndustrial.getAltura())
+				,String.valueOf(usuarioIndustrial.getPiso()), usuarioIndustrial.getDpto()
+				, String.valueOf(usuarioIndustrial.getCodigoPostal()), usuarioIndustrial.getLocalidad()
+				, usuarioIndustrial.getProvincia(), usuarioIndustrial.getRazonSocial(),
+				usuarioIndustrial.getCuit(), usuarioIndustrial.getIIBB(), usuarioIndustrial.getCondicionFiscal());
+	}
+
+
+	public static UsuarioResidencial toModelResidencial(UsuarioResidencialDTO dto){
+		return new UsuarioResidencial(dto.getCalle(),Integer.parseInt(dto.getAltura()),Integer.parseInt(dto.getPiso()),dto.getDpto()
+		,Integer.parseInt(dto.getCodigoPostal()),dto.getLocalidad(),dto.getProvincia(),dto.getNombre(),Integer.parseInt(dto.getDni()));
+	}
+
+	public static UsuarioResidencialDTO toDtoResidencial(UsuarioResidencial usuarioResidencial){
+		return new UsuarioResidencialDTO(usuarioResidencial.getCalle(),String.valueOf(usuarioResidencial.getAltura())
+				,String.valueOf(usuarioResidencial.getPiso()),usuarioResidencial.getDpto(),String.valueOf(usuarioResidencial.getCodigoPostal()),
+				usuarioResidencial.getLocalidad(),usuarioResidencial.getProvincia()
+				,usuarioResidencial.getNombre(),String.valueOf(usuarioResidencial.getDni()));
+	}
+
 }
