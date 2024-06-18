@@ -36,7 +36,7 @@ public class EmpresaElectricaController {
 		}
 		return INSTANCE;
 	}
-	
+
 	/* getters && setters */
 	public int getNumeroUsuario() {
 		return numeroUsuario;
@@ -89,6 +89,7 @@ public class EmpresaElectricaController {
 			UsuarioIndustrial usuarioIndustrial = new UsuarioIndustrial(dto.getCalle(),Integer.parseInt (dto.getAltura()),Integer.parseInt(dto.getPiso()),
 					dto.getDpto(),Integer.parseInt( dto.getDpto()),dto.getLocalidad(),dto.getProvincia(),dto.getRazonSocial(),dto.getCuit(), dto.getIIBB(),
 					dto.getCondicionFiscal());
+			UsuarioIndustrial usuarioIndustrial2 = toModelIndustrial(dto);
 			usuarios.add(usuarioIndustrial);
 			usuariosIndustrial.add(usuarioIndustrial);
 

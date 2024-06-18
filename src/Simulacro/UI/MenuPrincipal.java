@@ -116,6 +116,7 @@ public class MenuPrincipal extends JFrame {
 		btnUsuariosResidencial=new JButton("Usuarios Residenciales");
 
 
+
 		btnCrearUsuarioResidencial = new JButton("Crear Usuario Residencial");
 		btnCrearUsuarioResidencial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
