@@ -11,11 +11,11 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmpresaElectricaControllerTest {
-    private EmpresaElectricaController empresaElectricaController;
+    //private EmpresaElectricaController empresaElectricaController;
 
     @Test
     void crearUsuarioResidencial() {
-        empresaElectricaController= EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController= EmpresaElectricaController.getInstance();
         UsuarioResidencialDTO dto = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "444");
         UsuarioResidencialDTO dto2 = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "444");
         int resueltoDTO=empresaElectricaController.crearUsuarioResidencial(dto);
@@ -27,7 +27,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void crearUsuarioInduntrial() {
-        empresaElectricaController=EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","489","45","A");
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","489","45","A");
         int resueltoDTO=empresaElectricaController.crearUsuarioInduntrial(dto);
@@ -40,7 +40,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void existeUsuarioIndustrial() {
-        empresaElectricaController=EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4899","45","A");
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","1144","4895","45","A");
         empresaElectricaController.crearUsuarioInduntrial(dto);
@@ -55,7 +55,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void existeUSuarioResidencia() {
-        empresaElectricaController= EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController= EmpresaElectricaController.getInstance();
         UsuarioResidencialDTO dto = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4448");
         UsuarioResidencialDTO dto2 = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4444");
         empresaElectricaController.crearUsuarioResidencial(dto);
@@ -70,7 +70,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void buscarUsuarioPorDni() {
-        empresaElectricaController= EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController= EmpresaElectricaController.getInstance();
         UsuarioResidencialDTO dto = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4447");
         UsuarioResidencialDTO dto2 = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44441");
         empresaElectricaController.crearUsuarioResidencial(dto);
@@ -85,7 +85,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void buscarUsuarioPorCuit() {
-        empresaElectricaController=EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4892","45","A");
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","1144","48951","45","A");
         empresaElectricaController.crearUsuarioInduntrial(dto);
@@ -100,7 +100,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void buscarUsuariosIndustrial(){
-        empresaElectricaController=EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4892","45","A");
         UsuarioIndustrialDTO dto1=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48942","45","A");
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48792","45","A");
@@ -115,7 +115,7 @@ class EmpresaElectricaControllerTest {
 
     @Test
     void buscarUsuariosResidencial(){
-        empresaElectricaController=EmpresaElectricaController.getInstance();
+        EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioResidencialDTO dto=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4447");
         UsuarioResidencialDTO dto1=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "444447");
         UsuarioResidencialDTO dto2=new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44446877");

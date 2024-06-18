@@ -147,6 +147,7 @@ public class AltaUsuarioResidencial extends JFrame {
 				String loca		= textField_7.getText();
 				String pcia		= textField_8.getText();
 
+
 				UsuarioResidencialDTO dto=new UsuarioResidencialDTO(calle,altura,piso,dpto,cp,loca,pcia,nom,dni);
 				EmpresaElectricaController empresa = EmpresaElectricaController.getInstance();
 

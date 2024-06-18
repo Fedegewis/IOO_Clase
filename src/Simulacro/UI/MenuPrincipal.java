@@ -60,6 +60,7 @@ public class MenuPrincipal extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -72,7 +73,11 @@ public class MenuPrincipal extends JFrame {
 			}
 		});
 	}
-
+*/
+	public static void main(String [] args){
+		MenuPrincipal menu=new MenuPrincipal();
+		menu.setVisible(true);
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -212,6 +217,8 @@ public class MenuPrincipal extends JFrame {
 		btnUsuariosIndustrial.setBounds(107,338,210,23);
 		contentPane.add(btnUsuariosIndustrial);
 
+
+
 		/*
 		//guarda alta usuario
 		guardarUsuario_btn.addActionListener(new ActionListener() {
@@ -283,4 +290,5 @@ public class MenuPrincipal extends JFrame {
 	}*/
 
 	}
+
 }
