@@ -31,12 +31,6 @@ public class AltaUsuarioIndustrial extends JFrame {
         });
     }
 
-
-
-
-
-
-
     public AltaUsuarioIndustrial(){
             setTitle("Alta Usuario Industrial");
             setBounds(100,100,550,400);
