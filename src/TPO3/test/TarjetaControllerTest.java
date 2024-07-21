@@ -49,10 +49,10 @@ class TarjetaControllerTest {
         tarjeta.altaTarjetaDeCredito(dto1,"11254",40f);
         tarjeta.altaTarjetaDeCredito(dto2,"458",10f);
         tarjeta.altaTarjetaDeDebito(dto1,"45",40f);
-        tarjeta.altaTarjetaDeDebito(dto2,"79",30f);
+        //tarjeta.altaTarjetaDeDebito(dto2,"79",30f);
         boolean tc1=tarjeta.clienteNoTieneTarjeta(dto1,"TC");
-        boolean td1=tarjeta.clienteNoTieneTarjeta(dto1,"TD");
+        boolean td1=tarjeta.clienteNoTieneTarjeta(dto2,"TD");
         assertFalse(tc1);
-        assertFalse(td1);
+        assertTrue(td1);
     }
 }

@@ -88,6 +88,9 @@ public class MenuPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
+		empresaElectricaController.cargaInicial();
+
 		
 /*
 		

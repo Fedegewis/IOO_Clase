@@ -45,23 +45,17 @@ public class EmpresaElectricaController {
 	public void setNumeroUsuario(int numeroUsuario) {
 		this.numeroUsuario = numeroUsuario;
 	}
-	/*
+	public void cargaInicial(){
 
-	private void cargaInicial(){
-		UsuarioIndustrial usI = new UsuarioIndustrial("La Pampa",1234,0,"0",1345,"CABA","CABA","Mi Empresa SA","33-45689876-9","33-45689876-9","IVA Inscripto");
-		Medidor musI = new Medidor();
-		usI.setMedidor(musI);
-		Medicion m1 = new Medicion(Calendar.getInstance().getTime(),2015,10,1234);
-		Medicion m2 = new Medicion(Calendar.getInstance().getTime(),2015,11,1534);
-		musI.agregar(m1);
-		musI.agregar(m2);
-		TarifaIndustrial ti = new TarifaIndustrial(10,0.21,0.03);
-		usI.setTarifa(ti);
-		
-		
-		usuarios.addElement(usI);
+		UsuarioResidencialDTO dto = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4447");
+		UsuarioResidencialDTO dto2 = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44441");
+		crearUsuarioResidencial(dto);
+		crearUsuarioResidencial(dto2);
+		UsuarioIndustrialDTO dtoi=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4899","45","A");
+		UsuarioIndustrialDTO dto2i=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","1144","4895","45","A");
+		crearUsuarioInduntrial(dtoi);
+		crearUsuarioInduntrial(dto2i);
 	}
-	*/
 
 	/* alta usuarios */
 	public int crearUsuarioResidencial(UsuarioResidencialDTO dto){

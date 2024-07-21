@@ -58,7 +58,7 @@ class ClienteControllerTest {
         dto2=new ClienteDTO("Federico","489");
         boolean dto1Boolean=clienteController.crearCliente(dto);
         boolean dto2Boolean =clienteController.crearCliente(dto2);
-        assertEquals(dto1Boolean,true);
-        assertEquals(dto2Boolean,true);
+        assertTrue(dto1Boolean);
+        assertTrue(dto2Boolean);
     }
 }

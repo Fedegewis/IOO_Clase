@@ -41,12 +41,13 @@ class EmpresaElectricaControllerTest {
     @Test
     void existeUsuarioIndustrial() {
         EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
-        UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4899","45","A");
+       /* UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4899","45","A");
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","1144","4895","45","A");
         empresaElectricaController.crearUsuarioInduntrial(dto);
-        empresaElectricaController.crearUsuarioInduntrial(dto2);
-        boolean res1=empresaElectricaController.existeUsuarioIndustrial(dto.getCuit());
-        boolean res2= empresaElectricaController.existeUsuarioIndustrial(dto2.getCuit());
+        empresaElectricaController.crearUsuarioInduntrial(dto2);*/
+        empresaElectricaController.cargaInicial();
+        boolean res1=empresaElectricaController.existeUsuarioIndustrial("4899");
+        boolean res2= empresaElectricaController.existeUsuarioIndustrial("4895");
         boolean res3=empresaElectricaController.existeUsuarioIndustrial("112");
         assertTrue(res1);
         assertTrue(res2);
