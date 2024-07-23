@@ -10,16 +10,16 @@ public class ClienteDTO {
     private String tipo;
     private String saldo;
     private String descuento;
-    private List<FacturaDTO> facturas;
 
 
-    public ClienteDTO(String cuit, String nombre, String tipo, String saldo, String descuento, List<FacturaDTO> facturas) {
+
+    public ClienteDTO(String cuit, String nombre, String tipo, String saldo, String descuento) {
         this.cuit = cuit;
         this.nombre = nombre;
         this.tipo = tipo;
         this.saldo = saldo;
         this.descuento = descuento;
-        this.facturas = facturas;
+
     }
 
     public String getCuit() {
@@ -62,13 +62,7 @@ public class ClienteDTO {
         this.descuento = descuento;
     }
 
-    public List<FacturaDTO> getFacturas() {
-        return facturas;
-    }
 
-    public void setFacturas(List<FacturaDTO> facturas) {
-        this.facturas = facturas;
-    }
 
     @Override
     public String toString() {
@@ -78,7 +72,6 @@ public class ClienteDTO {
                 ", tipo='" + tipo + '\'' +
                 ", saldo='" + saldo + '\'' +
                 ", descuento='" + descuento + '\'' +
-                ", facturas=" + facturas +
                 '}';
     }
 }

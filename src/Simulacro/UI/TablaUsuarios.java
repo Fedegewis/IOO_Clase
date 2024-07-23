@@ -2,10 +2,13 @@ package Simulacro.UI;
 
 import Simulacro.Controller.EmpresaElectricaController;
 import Simulacro.DTO.UsuarioDTO;
+import Simulacro.Model.Usuario;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -21,13 +24,13 @@ public class TablaUsuarios extends JFrame {
     EmpresaElectricaController empresa=null;
 
     public TablaUsuarios(){
+        empresa=EmpresaElectricaController.getInstance();
         setTitle("Usuarios totales");
         setSize(300,300);
         topPanel=new JPanel();
         topPanel.setLayout(new BorderLayout());
         getContentPane().add(topPanel);
         columns=new String[]{"NroUsuario","Localidad","Provincia"};
-        empresa=EmpresaElectricaController.getInstance();
         data=convertDtoToData(empresa.buscarUsuarios());
         DefaultTableModel model=new DefaultTableModel(data,columns);
         table=new JTable();

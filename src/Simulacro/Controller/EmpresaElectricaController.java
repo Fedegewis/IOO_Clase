@@ -28,6 +28,7 @@ public class EmpresaElectricaController {
 		facturas	= new Vector<Factura>();
 		usuariosResidencial= new ArrayList<>();
 		usuariosIndustrial=new ArrayList<>();
+		cargaInicial();
 
 	}
 	public static EmpresaElectricaController getInstance(){
@@ -46,7 +47,6 @@ public class EmpresaElectricaController {
 		this.numeroUsuario = numeroUsuario;
 	}
 	public void cargaInicial(){
-
 		UsuarioResidencialDTO dto = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "4447");
 		UsuarioResidencialDTO dto2 = new UsuarioResidencialDTO("Cabildo", "1120", "2", "2", "1426", "CABA", "Bs As", "Federico", "44441");
 		crearUsuarioResidencial(dto);
@@ -62,7 +62,9 @@ public class EmpresaElectricaController {
 		if(!existeUSuarioResidencia(Integer.parseInt(dto.getDni()))){
 			UsuarioResidencial usuarioResidencial = new UsuarioResidencial(dto.getCalle(),Integer.parseInt(dto.getAltura()),Integer.parseInt(dto.getPiso()),
 					dto.getDpto(),Integer.parseInt(dto.getCodigoPostal()),dto.getLocalidad(),dto.getProvincia(),dto.getNombre(),Integer.parseInt(dto.getDni()));
+			UsuarioResidencial usuarioResidencial1=toModelResidencial(dto);
 			usuarios.add(usuarioResidencial);
+
 			usuariosResidencial.add(usuarioResidencial);
 			
 			//genera nuevo numero de usuario
@@ -99,6 +101,9 @@ public class EmpresaElectricaController {
 			return 0;
 		}
 	}
+
+
+
 
 	public Collection<UsuarioDTO> buscarUsuarios(){
 		Collection<UsuarioDTO> dto=new ArrayList<>();

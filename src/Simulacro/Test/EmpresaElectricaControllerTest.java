@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmpresaElectricaControllerTest {
     //private EmpresaElectricaController empresaElectricaController;
 
+
     @Test
     void crearUsuarioResidencial() {
         EmpresaElectricaController empresaElectricaController= EmpresaElectricaController.getInstance();

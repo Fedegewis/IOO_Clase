@@ -91,31 +91,7 @@ public class MenuPrincipal extends JFrame {
 		EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
 		empresaElectricaController.cargaInicial();
 
-		
-/*
-		
-		nombre_txt 	= new JTextField();
-		dni_txt 	= new JTextField();
-		calle_txt 	= new JTextField();
-		altura_txt 	= new JTextField();
-		piso_txt 	= new JTextField();
-		dpto_txt 	= new JTextField();
-		cp_txt 		= new JTextField();
-		loca_txt 	= new JTextField();
-		pcia_txt 	= new JTextField();
-		
-		nombre_lbl 					= new JLabel("Nombre: ");
-		dni_lbl		 				= new JLabel("Dni: ");
-		calle_lbl	 				= new JLabel("Calle: ");
-		altura_lbl	 				= new JLabel("Altura: ");
-		piso_lbl		 			= new JLabel("Piso: ");
-		dpto_lbl		 			= new JLabel("Dpto: ");
-		cp_lbl		 				= new JLabel("CP: ");
-		loca_lbl		 			= new JLabel("Loca: ");
-		pcia_lbl		 			= new JLabel("Pcia: ");
-		salidaAltaUsuarioResi	 	= new JLabel("Salida: ");
-		guardarUsuario_btn			= new JButton("Guardar");
-		*/
+
 
 		btnCrearUsuarioIndustrial = new JButton("Crear Usuario Industrial");
 		btnConsultarUsuarios = new JButton("Consultar usuarios");
