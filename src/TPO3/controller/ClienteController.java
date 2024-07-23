@@ -13,7 +13,9 @@ public class ClienteController {
     private static ClienteController INSTANCE = null;
 
     private ClienteController(){
+
         clientes=new ArrayList<>();
+        cargaInicial();
     }
 
     public static ClienteController getInstance() {
@@ -23,6 +25,14 @@ public class ClienteController {
         return INSTANCE;
     }
 
+    public void cargaInicial(){
+        ClienteDTO dto1=new ClienteDTO("Federico","454");
+        ClienteDTO dto2=new ClienteDTO("Marcelo","4548");
+        ClienteDTO dto3=new ClienteDTO("Jose","4574");
+        clientes.add(toModel(dto1));
+        clientes.add(toModel(dto2));
+        clientes.add(toModel(dto3));
+    }
     public ClienteDTO buscarClienteDNI(String dni) {
         for (Cliente cliente : clientes){
             if(dni != null && dni.equals(String.valueOf(cliente.getDni()))){

@@ -191,7 +191,7 @@ public class AltaUsuarioIndustrial extends JFrame {
             btnSalir.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.exit(0);
+                    dispose();
                 }
             });
             btnSalir.setBounds(340,279,116,23);

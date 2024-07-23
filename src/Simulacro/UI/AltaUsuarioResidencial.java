@@ -28,7 +28,7 @@ public class AltaUsuarioResidencial extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,6 +39,11 @@ public class AltaUsuarioResidencial extends JFrame {
 				}
 			}
 		});
+	}*/
+
+	public static void main(String [] args){
+		AltaUsuarioResidencial altaUsuarioResidencial=new AltaUsuarioResidencial();
+		altaUsuarioResidencial.setVisible(true);
 	}
 
 	/**
@@ -46,10 +51,10 @@ public class AltaUsuarioResidencial extends JFrame {
 	 */
 	public AltaUsuarioResidencial() {
 		setTitle("Alta Usuario Residencial");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 493, 396);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -92,47 +97,47 @@ public class AltaUsuarioResidencial extends JFrame {
 		textField = new JTextField();
 		textField.setBounds(112, 8, 305, 20);
 		contentPane.add(textField);
-		textField.setColumns(10);
+//		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(112, 33, 86, 20);
 		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		//textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(112, 58, 307, 20);
 		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		//textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
 		textField_3.setBounds(66, 98, 86, 20);
 		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		//textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
 		textField_4.setBounds(203, 98, 86, 20);
 		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		//textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
 		textField_5.setBounds(355, 98, 86, 20);
 		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		//textField_5.setColumns(10);
 		
 		textField_6 = new JTextField();
 		textField_6.setBounds(39, 144, 86, 20);
 		contentPane.add(textField_6);
-		textField_6.setColumns(10);
+		//textField_6.setColumns(10);
 		
 		textField_7 = new JTextField();
 		textField_7.setBounds(203, 144, 238, 20);
 		contentPane.add(textField_7);
-		textField_7.setColumns(10);
+		//textField_7.setColumns(10);
 		
 		textField_8 = new JTextField();
 		textField_8.setBounds(104, 192, 337, 20);
 		contentPane.add(textField_8);
-		textField_8.setColumns(10);
+		//textField_8.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {

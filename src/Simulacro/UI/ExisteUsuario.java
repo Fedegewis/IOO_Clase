@@ -35,6 +35,7 @@ public class ExisteUsuario extends JFrame {
         setTitle("Buscar Usuario");
         setBounds(50,50,400,400);
         contenPane=new JPanel();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         contenPane.setBorder(new EmptyBorder(5,5,5,5));
         setContentPane(contenPane);
         contenPane.setLayout(null);

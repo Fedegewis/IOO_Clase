@@ -58,6 +58,8 @@ public class CrearClienteUI extends JFrame {
                         boolean creacion =clienteController.crearCliente(new ClienteDTO(txtNombre.getText(),txtDni.getText()));
                         if (creacion){
                             JOptionPane.showMessageDialog(null, "Usuario :"+ txtNombre.getText()+ " fue creado correctamente");
+                            txtNombre.setText("");
+                            txtDni.setText("");
                         }
                         else{
                             JOptionPane.showMessageDialog(null, "Usuario :"+ txtNombre.getText()+ " no fue creado correctamente");

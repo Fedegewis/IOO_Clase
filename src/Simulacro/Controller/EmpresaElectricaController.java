@@ -129,6 +129,15 @@ public class EmpresaElectricaController {
 		return dto;
 	}
 
+	public UsuarioDTO buscarUsuariodTO(int nroUsuario){
+		for(int i= 0;i < usuarios.size();i++){
+			if(usuarios.elementAt(i).sosUsuario(nroUsuario)){
+				return toDTO(usuarios.elementAt(i));
+			}
+		}
+		return null;
+	}
+
 	public Usuario buscarUsuario(int nroUsuario){
 		for(int i= 0;i < usuarios.size();i++){
 			if(usuarios.elementAt(i).sosUsuario(nroUsuario)){

@@ -26,10 +26,28 @@ public class TablaUsuarios extends JFrame {
     public TablaUsuarios(){
         empresa=EmpresaElectricaController.getInstance();
         setTitle("Usuarios totales");
-        setSize(300,300);
+        setSize(500,500);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         topPanel=new JPanel();
-        topPanel.setLayout(new BorderLayout());
+        topPanel.setLayout(new FlowLayout());
         getContentPane().add(topPanel);
+        JTextField txtBusqueda=new JTextField(20);
+        topPanel.add(txtBusqueda);
+        JButton btnBuscar=new JButton("Buscar");
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel model= (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
+                String usuario=txtBusqueda.getText();
+                List<UsuarioDTO> dto=new ArrayList<UsuarioDTO>();
+                dto.add(empresa.buscarUsuariodTO(Integer.parseInt(usuario)));
+                data=convertDtoToData(dto);
+                model.setDataVector(data,columns);
+                table.setModel(model);
+            }
+        });
+        topPanel.add(btnBuscar,BorderLayout.NORTH);
         columns=new String[]{"NroUsuario","Localidad","Provincia"};
         data=convertDtoToData(empresa.buscarUsuarios());
         DefaultTableModel model=new DefaultTableModel(data,columns);

@@ -46,7 +46,7 @@ class EmpresaElectricaControllerTest {
         UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","1144","4895","45","A");
         empresaElectricaController.crearUsuarioInduntrial(dto);
         empresaElectricaController.crearUsuarioInduntrial(dto2);*/
-        empresaElectricaController.cargaInicial();
+        //empresaElectricaController.cargaInicial();
         boolean res1=empresaElectricaController.existeUsuarioIndustrial("4899");
         boolean res2= empresaElectricaController.existeUsuarioIndustrial("4895");
         boolean res3=empresaElectricaController.existeUsuarioIndustrial("112");
@@ -105,12 +105,12 @@ class EmpresaElectricaControllerTest {
         EmpresaElectricaController empresaElectricaController=EmpresaElectricaController.getInstance();
         UsuarioIndustrialDTO dto=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","4892","45","A");
         UsuarioIndustrialDTO dto1=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48942","45","A");
-        UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48792","45","A");
-        UsuarioIndustrialDTO dto3=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","489442","45","A");
+        /*UsuarioIndustrialDTO dto2=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","48792","45","A");
+        UsuarioIndustrialDTO dto3=new UsuarioIndustrialDTO("Cabildo","44","4","20","1459","Caba","Buenos Aires","114","489442","45","A");*/
         empresaElectricaController.crearUsuarioInduntrial(dto);
         empresaElectricaController.crearUsuarioInduntrial(dto1);
-        empresaElectricaController.crearUsuarioInduntrial(dto2);
-        empresaElectricaController.crearUsuarioInduntrial(dto3);
+        /*empresaElectricaController.crearUsuarioInduntrial(dto2);
+        empresaElectricaController.crearUsuarioInduntrial(dto3);*/
         Collection<UsuarioIndustrialDTO> List=empresaElectricaController.buscarUsuariosIndustrial();
         assertEquals(4,List.size());
     }

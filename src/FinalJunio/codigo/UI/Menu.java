@@ -2,7 +2,7 @@ package FinalJunio.codigo.UI;
 
 import javax.swing.*;
 
-public class Menu {
+public class Menu extends JFrame{
 
     private JPanel topPanel;
     private JTable table;
@@ -12,41 +12,7 @@ public class Menu {
     public Menu(){
 
     }
-    /*private JPanel topPanel;
-    private JTable table;
-    private JScrollPane scrollPane;
-    private String[] columns= new String[3];
-    private String [] [] data=new String[3][3];
-    EmpresaElectricaController empresa=null;
 
-
-public TablaUsuariosIndustrial(){
-    setTitle("Usuarios Industriales");
-    setSize(400,400);
-    topPanel=new JPanel();
-    topPanel.setLayout(new BorderLayout());
-    getContentPane().add(topPanel);
-    columns=new String[]{"Razon Social","Cuit","Condicion Fiscal"};
-    empresa=EmpresaElectricaController.getInstance();
-    data=convertDtoToData(empresa.buscarUsuariosIndustrial());
-    DefaultTableModel model = new DefaultTableModel(data,columns);
-    table=new JTable();
-    table.setModel(model);
-    scrollPane=new JScrollPane(table);
-    topPanel.add(scrollPane,BorderLayout.CENTER);
-}
-
-
-public String[][] convertDtoToData (Collection<UsuarioIndustrialDTO> dtos){
-    List<UsuarioIndustrialDTO>dtoList=new ArrayList<>(dtos);
-    String[] [] data=new String[dtos.size()][3];
-    for (int i=0;i<dtoList.size();i++){
-        data[i][0]=dtoList.get(i).getRazonSocial();
-        data[i][1]=dtoList.get(i).getCuit();
-        data[i][2]=dtoList.get(i).getCondicionFiscal();
-    }
-    return data;
-}*/
 
 
 }
